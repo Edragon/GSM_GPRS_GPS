@@ -1,0 +1,353 @@
+C51 COMPILER V9.01   MAIN                                                                  07/02/2016 14:59:37 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\Output\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND PRINT(..\Listing\main.lst) OBJECT(..\Ou
+                    -tput\main.obj)
+
+line level    source
+
+   1          /**********************************************************************************
+   2          
+   3          **********************************************************************************/
+   4          #include "config.h"
+   5          #include "string.h"
+   6          #include "delay.h"
+   7          #include "uart.h"
+   8          
+   9          
+  10          #define Buf1_Max 200                                      //串口2缓存长度
+  11          /*************  本地常量声明    **************/
+  12          sbit RUNING_LED = P3^2;                                 //运行指示灯
+  13          u8 key_buf=0;
+  14          sbit KEY        = P3^5;         //按键
+  15          char *p2; 
+  16          static unsigned char *phone="\"15124532672\"";     //短信接收方手机号
+  17          xdata unsigned char content[100]="GPS positioning success";//发送短信内容
+  18          
+  19          /*************  本地变量声明    **************/
+  20          
+  21          xdata u8 Uart1_Buf[Buf1_Max];
+  22          
+  23          u8 Times=0,First_Int = 0,shijian=0;
+  24          bdata u8 Flag;//定时器标志位
+  25          sbit Timer0_start =Flag^0;      //定时器0延时启动计数器
+  26          
+  27          /*************  本地函数声明    **************/
+  28          void GPIO_config(void); //端口初始化配置
+  29          void Timer0Init(void);  //定时器0初始化
+  30          void CLR_Buf1(void);    //清除串口2接收缓存
+  31          u8 Find(u8 *a);         //查找字符串
+  32          void Second_AT_Command(u8 *b,u8 *a,u8 wait_time); //发送AT指令函数
+  33          void Set_Text_Mode(void);//设置短信模式TEST
+  34          void Wait_CREG(void);   //查询等待模块注册成功
+  35          void Send_Text_Sms(void);//发送一条中文短信
+  36          /*************  外部函数和变量声明*****************/
+  37          
+  38          /*******************************************************************************
+  39          * 函数名 : main 
+  40          * 描述   : 主函数
+  41          * 输入   : 
+  42          * 输出   : 
+  43          * 返回   : 
+  44          * 注意   : 串口波特率是9600，GPRS模块默认波特率是115200，需要自己通过串口助手修改
+  45                                             为9600方可使用。 
+  46          *******************************************************************************/
+  47          void main(void)
+  48          {
+  49   1              Timer0Init();  //初始化定时器0
+  50   1              GPIO_config();
+  51   1              EA=1;   //开总中断
+  52   1              Uart1Init();    //初始化串口9600
+  53   1              Wait_CREG();    //查询等待模块注册成功
+  54   1              Set_Text_Mode();//设置短信为TEXT模式     
+C51 COMPILER V9.01   MAIN                                                                  07/02/2016 14:59:37 PAGE 2   
+
+  55   1              //UART1_SendString("SIM808模块GPS测试程序\r\n");
+  56   1              Second_AT_Command("AT+CGNSPWR=1\r\n","OK",2);   //打开GPS电源
+  57   1              delay_ms(100); 
+  58   1              Second_AT_Command("AT+CGNSSEQ=\"RMC\"\r\n","OK",2);//定义NMEA解析
+  59   1              Second_AT_Command("AT+CGNSINF\r\n","+CGNSINF: 1,1,",3);//等待定位成功
+  60   1              //UART1_SendString("SIM808模块定位成功\r\n");
+  61   1              Second_AT_Command("AT+CGNSURC=0\r\n","OK",1); //设置GPS输出参数
+  62   1              CLR_Buf1();
+  63   1              Send_Text_Sms();
+  64   1              
+  65   1              while(1)
+  66   1              {
+  67   2                      if(KEY)key_buf=1;//按键松开 
+  68   2                      if((KEY==0)&&(key_buf))//按键按下
+  69   2                      { 
+  70   3                              key_buf=0;
+  71   3                              content[0]=0;//添加字符串结束符
+  72   3                              strcat(content,"GPS data:");
+  73   3                              Second_AT_Command("AT+CGNSINF\r\n","OK",1);
+  74   3                              if((p2=(char*)strstr(Uart1_Buf,"OK")),(p2!=NULL))//寻找结束符
+  75   3                              {
+  76   4                                      *p2=0;//添加结束符
+  77   4                                      p2=strtok(Uart1_Buf,",");
+  78   4                                      p2=(char*)strtok(NULL,",");
+  79   4                                      p2=(char*)strtok(NULL,",");
+  80   4                                      //UART1_SendString("时间:");UART1_SendString((char *)p2);UART1_SendLR();
+  81   4                                      //strcat(content,"TIME:");
+  82   4                                      //strcat(content,(char *)p2);
+  83   4                                      p2=(char*)strtok(NULL,",");
+  84   4                                      //UART1_SendString("纬度:");UART1_SendString((char *)p2);UART1_SendLR();
+  85   4                                      strcat(content,"latitude:");
+  86   4                                      strcat(content,(char *)p2);
+  87   4                                      p2=(char*)strtok(NULL,",");
+  88   4                                      //UART1_SendString("经度:");UART1_SendString((char *)p2);UART1_SendLR();
+  89   4                                      strcat(content,"longitude:");
+  90   4                                      strcat(content,(char *)p2);
+  91   4                                      p2=(char*)strtok(NULL,",");
+  92   4                                      //UART1_SendString("海拔:");UART1_SendString((char *)p2);UART1_SendLR();
+  93   4                                      strcat(content,"elevation:");
+  94   4                                      strcat(content,(char *)p2);UART1_SendString((char *)content);UART1_SendLR();
+  95   4                                      Send_Text_Sms();//发送定位信息
+  96   4                                      delay_ms(1000); 
+  97   4                                      CLR_Buf1();     
+  98   4                              }
+  99   3                      }
+ 100   2                      
+ 101   2              }       
+ 102   1      }
+ 103          /*******************************************************************************
+ 104          * 函数名 : Uart1 
+ 105          * 描述   : 串口1中断服务入口函数
+ 106          * 输入   : 
+ 107          * 输出   : 
+ 108          * 返回   : 
+ 109          * 注意   : 
+ 110          *******************************************************************************/
+ 111          void Uart1() interrupt 4
+ 112          {
+ 113   1          if (RI)
+ 114   1          {
+ 115   2            RI = 0;                 //清除RI位
+ 116   2                              Uart1_Buf[First_Int] = SBUF;      //将接收到的字符串存到缓存中
+C51 COMPILER V9.01   MAIN                                                                  07/02/2016 14:59:37 PAGE 3   
+
+ 117   2                              First_Int++;                                    //缓存指针向后移动
+ 118   2                              if(First_Int > Buf1_Max)                //如果缓存满,将缓存指针指向缓存的首地址
+ 119   2                              {
+ 120   3                                      First_Int = 0;
+ 121   3                              }
+ 122   2          }
+ 123   1          if (TI)
+ 124   1          {
+ 125   2              TI = 0;                 //清除TI位
+ 126   2          }
+ 127   1      }
+ 128          /*******************************************************************************
+ 129          * 函数名 : Timer0_ISR
+ 130          * 描述   : 定时器0中断服务入口函数,20ms中断一次
+ 131          * 输入   : 
+ 132          * 输出   : 
+ 133          * 返回   : 
+ 134          * 注意   : 
+ 135          *******************************************************************************/
+ 136          void Timer0_ISR() interrupt 1
+ 137          {
+ 138   1              static u8 Time_count=0;
+ 139   1        TL0 = 0x00;             //重置定时器初值
+ 140   1              TH0 = 0xB8;               //重置定时器初值      
+ 141   1              TR0=0;//关定时器
+ 142   1              Time_count++;
+ 143   1              if(Time_count>=50)
+ 144   1              {
+ 145   2                      Time_count = 0;
+ 146   2                      RUNING_LED =~RUNING_LED;
+ 147   2              }
+ 148   1              if(count_20ms) //20ms延时计数器
+ 149   1                      count_20ms--;
+ 150   1              if(Timer0_start)
+ 151   1              Times++;
+ 152   1              if(Times > (50*shijian))
+ 153   1              {
+ 154   2                      Timer0_start = 0;
+ 155   2                      Times = 0;
+ 156   2              }
+ 157   1              TR0=1;//开定时器
+ 158   1      }
+ 159          /*******************************************************************************
+ 160          * 函数名 : GPIO_config
+ 161          * 描述   : IO口配置函数
+ 162          * 输入   : 
+ 163          * 输出   : 
+ 164          * 返回   : 
+ 165          * 注意   : 
+ 166          *******************************************************************************/
+ 167          void    GPIO_config(void)
+ 168          {
+ 169   1                      RUNING_LED=0;
+ 170   1      }
+ 171          /*******************************************************************************
+ 172          * 函数名 : Timer0Init
+ 173          * 描述   : 定时器0初始化，20ms定时
+ 174          * 输入   : 
+ 175          * 输出   : 
+ 176          * 返回   : 
+ 177          * 注意   : 
+ 178          *******************************************************************************/
+C51 COMPILER V9.01   MAIN                                                                  07/02/2016 14:59:37 PAGE 4   
+
+ 179          void Timer0Init(void)           //20毫秒@11.0592MHz
+ 180          {
+ 181   1              AUXR &= 0x7F;           //定时器时钟12T模式
+ 182   1              TMOD &= 0xF0;           //
+ 183   1              TMOD |= 0x01;           //设置定时器模式，16位定时器
+ 184   1              TL0 = 0x00;               //设置定时器初值
+ 185   1              TH0 = 0xB8;               //设置定时器初值
+ 186   1              TF0 = 0;                    //清TF0标志
+ 187   1              TR0 = 1;                    //定时器0开始计时
+ 188   1              ET0 = 1;          //使能定时器0中断
+ 189   1      }
+ 190          /*******************************************************************************
+ 191          * 函数名 : CLR_Buf1
+ 192          * 描述   : 清除串口2缓存数据
+ 193          * 输入   : 
+ 194          * 输出   : 
+ 195          * 返回   : 
+ 196          * 注意   : 
+ 197          *******************************************************************************/
+ 198          void CLR_Buf1(void)
+ 199          {
+ 200   1              u16 k;
+ 201   1              for(k=0;k<Buf1_Max;k++)      //将缓存内容清零
+ 202   1              {
+ 203   2                      Uart1_Buf[k] = 0x00;
+ 204   2              }
+ 205   1          First_Int = 0;              //接收字符串的起始存储位置
+ 206   1      }
+ 207          
+ 208          /*******************************************************************************
+ 209          * 函数名 : Find
+ 210          * 描述   : 判断缓存中是否含有指定的字符串
+ 211          * 输入   : 
+ 212          * 输出   : 
+ 213          * 返回   : unsigned char:1 找到指定字符，0 未找到指定字符 
+ 214          * 注意   : 
+ 215          *******************************************************************************/
+ 216          u8 Find(u8 *a)
+ 217          { 
+ 218   1        if(strstr(Uart1_Buf,a)!=NULL)
+ 219   1                  return 1;
+ 220   1              else
+ 221   1                              return 0;
+ 222   1      }
+ 223          
+ 224          /*******************************************************************************
+ 225          * 函数名 : Second_AT_Command
+ 226          * 描述   : 发送AT指令函数
+ 227          * 输入   : 发送数据的指针、发送等待时间(单位：S)
+ 228          * 输出   : 
+ 229          * 返回   : 
+ 230          * 注意   : 
+ 231          *******************************************************************************/
+ 232          void Second_AT_Command(u8 *b,u8 *a,u8 wait_time)         
+ 233          {
+ 234   1              u8 i;
+ 235   1              u8 *c;
+ 236   1              c = b;                                                                          //保存字符串地址到c
+ 237   1              CLR_Buf1(); 
+ 238   1          i = 0;
+ 239   1              while(i == 0)                    
+ 240   1              {
+C51 COMPILER V9.01   MAIN                                                                  07/02/2016 14:59:37 PAGE 5   
+
+ 241   2                      if(!Find(a))           //查找需要应答的字符
+ 242   2                      {
+ 243   3                              if(Timer0_start == 0)//超时重新发送命令
+ 244   3                              {
+ 245   4                                      b = c;                                           //将字符串地址给b
+ 246   4                                      for (b; *b!='\0';b++)
+ 247   4                                      {
+ 248   5                                              UART1_SendData(*b);
+ 249   5                                      }
+ 250   4                                      UART1_SendLR(); 
+ 251   4                                      Times = 0;
+ 252   4                                      shijian = wait_time;
+ 253   4                                      Timer0_start = 1;  //开始计时
+ 254   4                         }
+ 255   3              }
+ 256   2                      else
+ 257   2                      {
+ 258   3                              i = 1;
+ 259   3                              Timer0_start = 0;  
+ 260   3                      }
+ 261   2              }
+ 262   1              CLR_Buf1(); 
+ 263   1      }
+ 264          /*******************************************************************************
+ 265          * 注意   : 
+ 266          *******************************************************************************/
+ 267          void Set_Text_Mode(void)
+ 268          {       
+ 269   1              Second_AT_Command("ATE1","OK",3);                                                                               //取消回显      
+ 270   1              Second_AT_Command("AT+CMGF=1","OK",3);  
+ 271   1              Second_AT_Command("AT+CSMP=17,167,0,241","OK",3);                                                       //TEXT模式      
+ 272   1              Second_AT_Command("AT+CPMS=\"SM\",\"SM\",\"SM\"","OK",3);//所有操作都在SIM卡中进行
+ 273   1              Second_AT_Command("AT+CSCA?","OK",3);
+ 274   1      }
+ 275          /*******************************************************************************
+ 276          *******************************************************************************/
+ 277          void Send_Text_Sms(void)
+ 278          {
+ 279   1              unsigned char temp[50]="AT+CMGS=";              
+ 280   1              strcat(temp,phone); //字符串拼接函数（库函数）
+ 281   1              Second_AT_Command(temp,">",3); //等待接收到“>”才发送短信内容
+ 282   1              UART1_SendString(content);     //发送短信内容
+ 283   1              UART1_SendData(0X1A);          //发送结束符
+ 284   1              while(strstr(Uart1_Buf,"OK")==NULL);
+ 285   1      }
+ 286          
+ 287          /*******************************************************************************
+ 288          * 函数名 : Wait_CREG
+ 289          * 描述   : 等待模块注册成功
+ 290          * 输入   : 
+ 291          * 输出   : 
+ 292          * 返回   : 
+ 293          * 注意   : 
+ 294          *******************************************************************************/
+ 295          void Wait_CREG(void)
+ 296          {
+ 297   1              u8 i;
+ 298   1              u8 k;
+ 299   1              i = 0;
+ 300   1              CLR_Buf1();
+ 301   1              while(i == 0)                           
+ 302   1              {
+C51 COMPILER V9.01   MAIN                                                                  07/02/2016 14:59:37 PAGE 6   
+
+ 303   2                      CLR_Buf1();        
+ 304   2                      UART1_SendString("AT+CREG?");//查询模块网络注册状态
+ 305   2                      UART1_SendLR();
+ 306   2                      delay_ms(250);                                                  
+ 307   2                  for(k=0;k<Buf1_Max;k++)                             
+ 308   2              {
+ 309   3                              if(Uart1_Buf[k] == ':')
+ 310   3                              {
+ 311   4                                      if((Uart1_Buf[k+4] == '1')||(Uart1_Buf[k+4] == '5')) //表明网络注册成功
+ 312   4                                      {
+ 313   5                                              i = 1;
+ 314   5                                        break;
+ 315   5                                      }
+ 316   4                              }
+ 317   3                      }
+ 318   2              }
+ 319   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1107    ----
+   CONSTANT SIZE    =    267    ----
+   XDATA SIZE       =    300    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     12      66
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

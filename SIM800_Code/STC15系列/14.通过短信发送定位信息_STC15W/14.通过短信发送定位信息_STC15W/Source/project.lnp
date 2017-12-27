@@ -1,0 +1,6 @@
+"STARTUP.obj",
+"delay.obj",
+"main.obj",
+"uart.obj" 
+TO "project" 
+PRINT("..\Listing\project.m51") RAMSIZE(256) 

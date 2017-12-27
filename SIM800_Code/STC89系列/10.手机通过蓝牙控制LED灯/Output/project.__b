@@ -1,0 +1,6 @@
+TRANSFER
+"..\Output\STARTUP.obj",
+"..\Output\delay.obj",
+"..\Output\main.obj",
+"..\Output\uart.obj" 
+TO "..\Output\project.LIB"

@@ -1,0 +1,265 @@
+ARM Linker, 5.03 [Build 76] [MDK-ARM Standard]
+
+==============================================================================
+
+Section Cross References
+
+    main.o(.text) refers to stm32f10x_usart.o(.text) for USART_GetFlagStatus
+    main.o(.text) refers to systick.o(.text) for Delay_nMs
+    main.o(.text) refers to misc.o(.text) for NVIC_SetVectorTable
+    main.o(.text) refers to timer.o(.text) for Timer2_Init_Config
+    main.o(.text) refers to usart.o(.text) for USART1_Init_Config
+    main.o(.text) refers to led.o(.text) for GPIO_Config
+    main.o(.text) refers to strstr.o(.text) for strstr
+    main.o(.text) refers to strtok.o(.text) for strtok
+    main.o(.text) refers to stm32f10x_tim.o(.text) for TIM_GetITStatus
+    main.o(.text) refers to main.o(.bss) for Uart2_Buf
+    main.o(.text) refers to main.o(.data) for Times
+    stm32f10x_it.o(.text) refers to systick.o(.text) for SysTickDelayTime_Counter
+    usart.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphClockCmd
+    usart.o(.text) refers to stm32f10x_usart.o(.text) for USART_DeInit
+    usart.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_Init
+    usart.o(.text) refers to misc.o(.text) for NVIC_Init
+    key.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphClockCmd
+    key.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_Init
+    key.o(.text) refers to systick.o(.text) for Delay_nMs
+    led.o(.text) refers to stm32f10x_gpio.o(.text) for GPIO_ResetBits
+    led.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphClockCmd
+    systick.o(.text) refers to system_stm32f10x.o(.data) for SystemCoreClock
+    systick.o(.text) refers to systick.o(.data) for SysTickDelayTime
+    timer.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB1PeriphClockCmd
+    timer.o(.text) refers to stm32f10x_tim.o(.text) for TIM_TimeBaseInit
+    timer.o(.text) refers to misc.o(.text) for NVIC_Init
+    stm32f10x_gpio.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphResetCmd
+    stm32f10x_rcc.o(.text) refers to stm32f10x_rcc.o(.data) for APBAHBPrescTable
+    stm32f10x_tim.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphResetCmd
+    stm32f10x_usart.o(.text) refers to stm32f10x_rcc.o(.text) for RCC_APB2PeriphResetCmd
+    system_stm32f10x.o(.text) refers to system_stm32f10x.o(.data) for SystemCoreClock
+    startup_stm32f10x_md.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f10x_md.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f10x_md.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(STACK) for __initial_sp
+    startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(.text) for Reset_Handler
+    startup_stm32f10x_md.o(RESET) refers to stm32f10x_it.o(.text) for NMI_Handler
+    startup_stm32f10x_md.o(RESET) refers to main.o(.text) for TIM2_IRQHandler
+    startup_stm32f10x_md.o(RESET) refers to usart.o(.text) for USART1_IRQHandler
+    startup_stm32f10x_md.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32f10x_md.o(.text) refers to system_stm32f10x.o(.text) for SystemInit
+    startup_stm32f10x_md.o(.text) refers to __main.o(!!!main) for __main
+    startup_stm32f10x_md.o(.text) refers to startup_stm32f10x_md.o(HEAP) for Heap_Mem
+    startup_stm32f10x_md.o(.text) refers to startup_stm32f10x_md.o(STACK) for Stack_Mem
+    strtok.o(.text) refers to strtok_int.o(.text) for __strtok_internal
+    strtok.o(.text) refers to strtok.o(.data) for .data
+    __main.o(!!!main) refers to rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$00000009) for __rt_entry_postsh_1
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
+    rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry4.o(.ARM.Collect$$rtentry$$00000004) for __rt_entry_sh
+    strtok_int.o(.text) refers to strspn.o(.text) for strspn
+    strtok_int.o(.text) refers to strcspn.o(.text) for strcspn
+    rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
+    rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
+    rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
+    rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to main.o(.text) for main
+    rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for .ARM.Collect$$rtentry$$0000000A
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$0000000B) for .ARM.Collect$$rtentry$$0000000B
+    rtentry2.o(.ARM.exidx) refers to rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for .ARM.Collect$$rtentry$$0000000D
+    rtentry4.o(.ARM.Collect$$rtentry$$00000004) refers to sys_stackheap_outer.o(.text) for __user_setup_stackheap
+    rtentry4.o(.ARM.exidx) refers to rtentry4.o(.ARM.Collect$$rtentry$$00000004) for .ARM.Collect$$rtentry$$00000004
+    sys_stackheap_outer.o(.text) refers to libspace.o(.text) for __user_perproc_libspace
+    sys_stackheap_outer.o(.text) refers to startup_stm32f10x_md.o(.text) for __user_initial_stackheap
+    exit.o(.text) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for __rt_exit
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002C) for __rt_lib_init_alloca_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002A) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_atexit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_clock_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_cpp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_exceptions_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000002) for __rt_lib_init_fp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_fp_trap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_getenv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000008) for __rt_lib_init_heap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000F) for __rt_lib_init_lc_collate_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000011) for __rt_lib_init_lc_ctype_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_monetary_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_numeric_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_lc_time_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000C) for __rt_lib_init_rand_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000031) for __rt_lib_init_return
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_signal_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_stdio_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000A) for __rt_lib_init_user_alloc_1
+    libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for .ARM.Collect$$rtexit$$00000000
+    libinit2.o(.ARM.Collect$$libinit$$0000000E) refers to libinit2.o(.ARM.Collect$$libinit$$0000000D) for .ARM.Collect$$libinit$$0000000D
+    libinit2.o(.ARM.Collect$$libinit$$00000010) refers to libinit2.o(.ARM.Collect$$libinit$$0000000D) for .ARM.Collect$$libinit$$0000000D
+    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$0000000D) for .ARM.Collect$$libinit$$0000000D
+    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$0000000D) for .ARM.Collect$$libinit$$0000000D
+    libinit2.o(.ARM.Collect$$libinit$$00000016) refers to libinit2.o(.ARM.Collect$$libinit$$0000000D) for .ARM.Collect$$libinit$$0000000D
+    libinit2.o(.ARM.Collect$$libinit$$00000024) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000025) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    rtexit2.o(.ARM.Collect$$rtexit$$00000003) refers to libshutdown.o(.ARM.Collect$$libshutdown$$00000000) for __rt_lib_shutdown
+    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to sys_exit.o(.text) for _sys_exit
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
+    argv_veneer.o(.emb_text) refers to no_argv.o(.text) for __ARM_get_argv
+    sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    _get_argv_nomalloc.o(.text) refers (Special) to hrguard.o(.text) for __heap_region$guard
+    _get_argv_nomalloc.o(.text) refers to defsig_rtmem_outer.o(.text) for __rt_SIGRTMEM
+    _get_argv_nomalloc.o(.text) refers to sys_command.o(.text) for _sys_command_string
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000006) for __rt_lib_shutdown_fp_trap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E) for __rt_lib_shutdown_heap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F) for __rt_lib_shutdown_return
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000009) for __rt_lib_shutdown_signal_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000003) for __rt_lib_shutdown_stdio_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000B) for __rt_lib_shutdown_user_alloc_1
+    sys_command.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_command.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig_rtmem_outer.o(.text) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_rtmem_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_rtmem_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    rt_raise.o(.text) refers to __raise.o(.text) for __raise
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_rtmem_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    __raise.o(.text) refers to defsig.o(CL$$defsig) for __default_signal_handler
+    defsig_general.o(.text) refers to sys_wrch.o(.text) for _ttywrch
+    sys_wrch.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_wrch.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig.o(CL$$defsig) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_abrt_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_fpe_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtred_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_stak_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_pvfn_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_cppl_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing usart.o(.bss), (200 bytes).
+    Removing usart.o(.data), (4 bytes).
+    Removing key.o(.text), (172 bytes).
+    Removing stm32f10x_exti.o(.text), (284 bytes).
+    Removing core_cm3.o(.emb_text), (32 bytes).
+
+5 unused section(s) (total 692 bytes) removed from the image.
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x00000000
+
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002594, Max: 0x00020000, ABSOLUTE)
+
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00002554, Max: 0x00020000, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08000000   0x000000ec   Data   RO          307    RESET               startup_stm32f10x_md.o
+    0x080000ec   0x00000008   Code   RO          321  * !!!main             c_w.l(__main.o)
+    0x080000f4   0x00000002   Code   RO          354    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x080000f6   0x00000000   Code   RO          361    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          364    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          366    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          368    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          371    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          373    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          375    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          377    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          379    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          381    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          383    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          385    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          387    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          389    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          391    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          395    .ARM.Collect$$libinit$$0000002A  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          397    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          399    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x080000f6   0x00000000   Code   RO          401    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x080000f6   0x00000002   Code   RO          402    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
+    0x080000f8   0x00000002   Code   RO          422    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x080000fa   0x00000000   Code   RO          436    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
+    0x080000fa   0x00000000   Code   RO          439    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
+    0x080000fa   0x00000000   Code   RO          442    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
+    0x080000fa   0x00000000   Code   RO          444    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
+    0x080000fa   0x00000000   Code   RO          447    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
+    0x080000fa   0x00000002   Code   RO          448    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x080000fc   0x00000000   Code   RO          323    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
+    0x080000fc   0x00000000   Code   RO          327    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
+    0x080000fc   0x00000006   Code   RO          339    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
+    0x08000102   0x00000000   Code   RO          329    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
+    0x08000102   0x00000004   Code   RO          330    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
+    0x08000106   0x00000000   Code   RO          332    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
+    0x08000106   0x00000008   Code   RO          333    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
+    0x0800010e   0x00000002   Code   RO          358    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x08000110   0x00000000   Code   RO          404    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x08000110   0x00000004   Code   RO          405    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x08000114   0x00000006   Code   RO          406    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x0800011a   0x00000002   PAD
+    0x0800011c   0x0000034c   Code   RO            1    .text               main.o
+    0x08000468   0x00000020   Code   RO           69    .text               stm32f10x_it.o
+    0x08000488   0x000001ac   Code   RO          116    .text               usart.o
+    0x08000634   0x000000b0   Code   RO          153    .text               led.o
+    0x080006e4   0x000000d4   Code   RO          168    .text               systick.o
+    0x080007b8   0x0000005c   Code   RO          186    .text               timer.o
+    0x08000814   0x000000dc   Code   RO          202    .text               misc.o
+    0x080008f0   0x00000358   Code   RO          226    .text               stm32f10x_gpio.o
+    0x08000c48   0x000003a4   Code   RO          238    .text               stm32f10x_rcc.o
+    0x08000fec   0x00000e1a   Code   RO          252    .text               stm32f10x_tim.o
+    0x08001e06   0x00000002   PAD
+    0x08001e08   0x00000408   Code   RO          264    .text               stm32f10x_usart.o
+    0x08002210   0x000001dc   Code   RO          287    .text               system_stm32f10x.o
+    0x080023ec   0x00000040   Code   RO          308    .text               startup_stm32f10x_md.o
+    0x0800242c   0x0000000c   Code   RO          314    .text               c_w.l(strtok.o)
+    0x08002438   0x00000024   Code   RO          317    .text               c_w.l(strstr.o)
+    0x0800245c   0x00000006   Code   RO          319    .text               c_w.l(heapauxi.o)
+    0x08002462   0x00000002   PAD
+    0x08002464   0x00000044   Code   RO          324    .text               c_w.l(strtok_int.o)
+    0x080024a8   0x00000020   Code   RO          341    .text               c_w.l(strcspn.o)
+    0x080024c8   0x0000001c   Code   RO          343    .text               c_w.l(strspn.o)
+    0x080024e4   0x0000004a   Code   RO          345    .text               c_w.l(sys_stackheap_outer.o)
+    0x0800252e   0x0000000c   Code   RO          347    .text               c_w.l(exit.o)
+    0x0800253a   0x00000002   PAD
+    0x0800253c   0x00000008   Code   RO          355    .text               c_w.l(libspace.o)
+    0x08002544   0x0000000c   Code   RO          414    .text               c_w.l(sys_exit.o)
+    0x08002550   0x00000002   Code   RO          425    .text               c_w.l(use_no_semi.o)
+    0x08002552   0x00000000   Code   RO          427    .text               c_w.l(indicate_semi.o)
+    0x08002552   0x00000002   PAD
+    0x08002554   0x00000000   Data   RO          479    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000768, Max: 0x00005000, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x0000000d   Data   RW            3    .data               main.o
+    0x2000000d   0x00000003   PAD
+    0x20000010   0x00000004   Data   RW          169    .data               systick.o
+    0x20000014   0x00000014   Data   RW          239    .data               stm32f10x_rcc.o
+    0x20000028   0x00000014   Data   RW          288    .data               system_stm32f10x.o
+    0x2000003c   0x00000004   Data   RW          315    .data               c_w.l(strtok.o)
+    0x20000040   0x000000c8   Zero   RW            2    .bss                main.o
+    0x20000108   0x00000060   Zero   RW          356    .bss                c_w.l(libspace.o)
+    0x20000168   0x00000200   Zero   RW          306    HEAP                startup_stm32f10x_md.o
+    0x20000368   0x00000400   Zero   RW          305    STACK               startup_stm32f10x_md.o
+

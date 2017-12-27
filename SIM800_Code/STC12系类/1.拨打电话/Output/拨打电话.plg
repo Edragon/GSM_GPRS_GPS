@@ -1,0 +1,27 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+F:\TB\模块\information\SIM808资料包\sim808\SIM808 V2.4.7\3 程序\STC12系类\1.拨打电话\Source\拨打电话.uvproj
+Project File Date:  07/24/2016
+
+<h2>Output:</h2>
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1INIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UART1_SENDSTRING?UART
+Program Size: data=25.0 xdata=200 code=652
+creating hex file from "..\Output\拨打电话"...
+"..\Output\拨打电话" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART1INIT?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UART1_SENDSTRING?UART
+Program Size: data=25.0 xdata=200 code=652
+creating hex file from "..\Output\拨打电话"...
+"..\Output\拨打电话" - 0 Error(s), 2 Warning(s).
