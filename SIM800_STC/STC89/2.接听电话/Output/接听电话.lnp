@@ -1,0 +1,5 @@
+"..\Output\delay.obj",
+"..\Output\main.obj",
+"..\Output\uart.obj" 
+TO "..\Output\接听电话" 
+PRINT("..\Listing\接听电话.m51") RAMSIZE(256) 

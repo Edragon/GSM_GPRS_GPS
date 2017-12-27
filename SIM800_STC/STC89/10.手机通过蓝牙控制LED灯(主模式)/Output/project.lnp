@@ -1,0 +1,6 @@
+"..\Output\STARTUP.obj",
+"..\Output\delay.obj",
+"..\Output\main.obj",
+"..\Output\uart.obj" 
+TO "..\Output\project" 
+PRINT("..\Listing\project.m51") RAMSIZE(256) 

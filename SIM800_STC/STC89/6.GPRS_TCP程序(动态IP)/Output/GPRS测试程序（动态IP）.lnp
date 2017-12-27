@@ -1,0 +1,5 @@
+"..\Output\main.obj",
+"..\Output\delay.obj",
+"..\Output\uart.obj" 
+TO "..\Output\GPRS测试程序（动态IP）" 
+PRINT("..\Listing\GPRS测试程序（动态IP）.m51") RAMSIZE(256) 

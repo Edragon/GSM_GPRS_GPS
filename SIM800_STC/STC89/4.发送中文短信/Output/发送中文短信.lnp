@@ -1,0 +1,5 @@
+"..\Output\delay.obj",
+"..\Output\main.obj",
+"..\Output\uart.obj" 
+TO "..\Output\发送中文短信" 
+PRINT("..\Listing\发送中文短信.m51") RAMSIZE(256) 

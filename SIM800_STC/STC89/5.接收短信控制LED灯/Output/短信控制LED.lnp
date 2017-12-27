@@ -1,0 +1,5 @@
+"..\Output\main.obj",
+"..\Output\delay.obj",
+"..\Output\uart.obj" 
+TO "..\Output\短信控制LED" 
+PRINT("..\Listing\短信控制LED.m51") RAMSIZE(256) 

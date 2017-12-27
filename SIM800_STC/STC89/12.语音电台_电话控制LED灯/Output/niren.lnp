@@ -1,0 +1,5 @@
+"..\Output\main.obj",
+"..\Output\delay.obj",
+"..\Output\uart.obj" 
+TO "..\Output\niren" 
+PRINT("..\Listing\niren.m51") RAMSIZE(256) 
