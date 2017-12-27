@@ -1,0 +1,15 @@
+//////////////////////////////////////////////////////////////////////////////////	 
+//本程序只供学习使用，未经作者许可，不得用于其它任何用途
+//diy Audio
+//技术支持:aemails@163.com
+//版权所有，盗版必究。
+//All rights reserved									  
+////////////////////////////////////////////////////////////////////////////////// 
+#ifndef __UART_H
+#define __UART_H
+
+void UART2_Config(u32 bps);
+void UART2_SendByte(u8 data);
+void UART2_SendString(u8* Data);
+
+#endif

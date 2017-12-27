@@ -1,0 +1,77 @@
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[InterruptLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+SumSortOrder=0
+[DataLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+[Breakpoints2]
+Count=0
+[Interrupts]
+Enabled=1
+[MemoryMap]
+Enabled=0
+Base=0
+UseAuto=0
+TypeViolation=1
+UnspecRange=1
+ActionState=1
+[Trace1]
+Enabled=0
+ShowSource=1
+[DebugChecksum]
+Checksum=-269697726
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[array_types]
+Fmt0=u8[300]	5	0
+[watch_formats]
+Fmt0={W}0:UART_RX_STA	1	0
+Fmt1={W}0:flag	1	0
+Fmt2={W}0:nn	3	0
+Fmt3={W}42:flag	1	0
+[DataSample]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$}.82.3" 0 0 0 0 "" 0 ""
+Count=1
+[Aliases]
+A0=_ "C:\Users\Administrator\Desktop\SIM800TTS_Code\STM8S_StdPeriph_Driver\src\stm8s_clk.c" ""
+A1=_ "C:\Users\Administrator\Desktop\SIM800TTS_Code\STM8S_StdPeriph_Driver\src\stm8s_tim1.c" ""
+A2=_ "C:\Users\Administrator\Desktop\SIM800TTS_Code\stm8s_it.c" ""
+A3=_ "C:\Users\Administrator\Desktop\STM8_SIM800\STM8S_StdPeriph_Driver\src\stm8s_clk.c" ""
+A4=_ "C:\Users\Administrator\Desktop\STM8ЖўЮЌТы\STM8S_StdPeriph_Driver\src\stm8s_clk.c" ""
+A5=_ "C:\Users\Administrator\Desktop\STM8ЖўЮЌТы\STM8S_StdPeriph_Driver\src\stm8s_uart2.c" ""
+A6=_ "F:\SIM808\SIM800TTS_Code\STM8S_StdPeriph_Driver\src\stm8s_clk.c" ""
+A7=_ "F:\SIM808\SIM800TTS_Code\STM8S_StdPeriph_Driver\src\stm8s_tim1.c" ""
+A8=_ "F:\SIM808\SIM800TTS_Code\STM8S_StdPeriph_Driver\src\stm8s_uart2.c" ""
+Count=9
+SuppressDialog=1

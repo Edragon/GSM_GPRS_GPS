@@ -1,0 +1,5 @@
+-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\APP -I..\STM32F10x_FWLib\inc -I..\CM3 -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\OLED -I..\HARDWARE\USART2 -I..\SIM800C 
+-I C:\Keil\ARM\RV31\INC 
+-I C:\Keil\ARM\CMSIS\Include 
+-I C:\Keil\ARM\Inc\ST\STM32F10x 
+-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o "..\OBJ\core_cm3.o" --omf_browse "..\OBJ\core_cm3.crf" --depend "..\OBJ\core_cm3.d" "..\CM3\core_cm3.c"
