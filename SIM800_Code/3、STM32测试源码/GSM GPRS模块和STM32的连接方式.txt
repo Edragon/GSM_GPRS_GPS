@@ -1,0 +1,27 @@
+	本例程仅适用于在本店购买模块的用户使用，鄙视其它店铺的盗用行为
+	版权所有，盗版必究！！！
+	SIM800 GSM/GPRS模块
+	https://item.taobao.com/item.htm?id=521599424969
+	测试使用STM32最小系统：
+	https://item.taobao.com/item.htm?id=523336310868
+	STC12C5A60S2最小系统：
+	https://item.taobao.com/item.htm?id=524701473371
+	USB-TTL模块：
+	https://item.taobao.com/item.htm?id=39481188174
+	移动电源锂电池套装
+	https://item.taobao.com/item.htm?id=530904849115
+	移动场合供电用锂电池套装：
+	https://item.taobao.com/item.htm?id=530904849115
+	
+	接线说明：
+	STM32					SIM800C
+	3.3V	------>	V_MCU
+	GND		<----->	GND
+	PA3		<------	T_TX
+	PA2		------>	T_RX
+	
+
+	//用于调试可不接
+	STM32					USB-TTL模块
+	GND		------>	GND
+	TX1		------>	RXD

@@ -1,0 +1,180 @@
+C51 COMPILER V9.00   MAIN                                                                  12/30/2016 19:34:00 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\2.DevelopSoft\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /******************************************************************
+   2                  作者：神秘藏宝室
+   3                  店铺：ILoveMCU.taobao.com
+   4                  最终解释权归原作者所有，鄙视其他店铺不劳而获的抄袭行为！
+   5          ******************************************************************/
+   6          #include "main.h"
+   7          #include "uart.h"
+   8          
+   9          #include <stdio.h>
+  10          #include <stdlib.h>
+  11          #include <string.h>
+  12          
+  13          
+  14          //定义变量
+  15          
+  16          
+  17          //****************************************************
+  18          //主函数
+  19          //****************************************************
+  20          void main()
+  21          {
+  22   1              unsigned char i = 0;
+  23   1              Uart_Init();
+  24   1              Delay_ms(10);
+  25   1      
+  26   1              UartPrintf("Welcome to use!");
+  27   1              UartPrintf("ILoveMCU.taobao.com");
+  28   1      
+  29   1              clrStruct();    //清空缓存数组
+  30   1      
+  31   1      
+  32   1              while(1)
+  33   1              {
+  34   2                      parseGpsBuffer();
+  35   2                      printGpsBuffer();
+  36   2              }
+  37   1      }
+  38          
+  39          
+  40          void errorLog(int num)
+  41          {
+  42   1              
+  43   1              while (1)
+  44   1              {
+  45   2                      UartPrintf("ERROR");
+  46   2                      UartPrintASCII(num+0x30);
+  47   2                      UartPrintf("\r\n");
+  48   2              }
+  49   1      }
+  50          
+  51          void parseGpsBuffer()
+  52          {
+  53   1              char *subString;
+  54   1              char *subStringNext;
+  55   1              char i = 0;
+C51 COMPILER V9.00   MAIN                                                                  12/30/2016 19:34:00 PAGE 2   
+
+  56   1              if (Save_Data.isGetData)
+  57   1              {
+  58   2                      Save_Data.isGetData = false;
+  59   2                      UartPrintf("**************\r\n");
+  60   2                      UartPrintf(Save_Data.GPS_Buffer);
+  61   2      
+  62   2                      
+  63   2                      for (i = 0 ; i <= 6 ; i++)
+  64   2                      {
+  65   3                              if (i == 0)
+  66   3                              {
+  67   4                                      if ((subString = strstr(Save_Data.GPS_Buffer, ",")) == NULL)
+  68   4                                              errorLog(1);    //解析错误
+  69   4                              }
+  70   3                              else
+  71   3                              {
+  72   4                                      subString++;
+  73   4                                      if ((subStringNext = strstr(subString, ",")) != NULL)
+  74   4                                      {
+  75   5                                              char usefullBuffer[2]; 
+  76   5                                              switch(i)
+  77   5                                              {
+  78   6                                                      case 1:memcpy(Save_Data.UTCTime, subString, subStringNext - subString);break;   //获取UTC时间
+  79   6                                                      case 2:memcpy(usefullBuffer, subString, subStringNext - subString);break;       //获取UTC时间
+  80   6                                                      case 3:memcpy(Save_Data.latitude, subString, subStringNext - subString);break;  //获取纬度信息
+  81   6                                                      case 4:memcpy(Save_Data.N_S, subString, subStringNext - subString);break;       //获取N/S
+  82   6                                                      case 5:memcpy(Save_Data.longitude, subString, subStringNext - subString);break; //获取经度信息
+  83   6                                                      case 6:memcpy(Save_Data.E_W, subString, subStringNext - subString);break;       //获取E/W
+  84   6      
+  85   6                                                      default:break;
+  86   6                                              }
+  87   5      
+  88   5                                              subString = subStringNext;
+  89   5                                              Save_Data.isParseData = true;
+  90   5                                              if(usefullBuffer[0] == 'A')
+  91   5                                                      Save_Data.isUsefull = true;
+  92   5                                              else if(usefullBuffer[0] == 'V')
+  93   5                                                      Save_Data.isUsefull = false;
+  94   5      
+  95   5                                      }
+  96   4                                      else
+  97   4                                      {
+  98   5                                              errorLog(2);    //解析错误
+  99   5                                      }
+ 100   4                              }
+ 101   3      
+ 102   3      
+ 103   3                      }
+ 104   2              }
+ 105   1      }
+ 106          
+ 107          void printGpsBuffer()
+ 108          {
+ 109   1              if (Save_Data.isParseData)
+ 110   1              {
+ 111   2                      Save_Data.isParseData = false;
+ 112   2                      
+ 113   2                      UartPrintf("Save_Data.UTCTime = ");
+ 114   2                      UartPrintf(Save_Data.UTCTime);
+ 115   2                      UartPrintf("\r\n");
+ 116   2      
+ 117   2                      if(Save_Data.isUsefull)
+C51 COMPILER V9.00   MAIN                                                                  12/30/2016 19:34:00 PAGE 3   
+
+ 118   2                      {
+ 119   3                              Save_Data.isUsefull = false;
+ 120   3                              UartPrintf("Save_Data.latitude = ");
+ 121   3                              UartPrintf(Save_Data.latitude);
+ 122   3                              UartPrintf("\r\n");
+ 123   3      
+ 124   3      
+ 125   3                              UartPrintf("Save_Data.N_S = ");
+ 126   3                              UartPrintf(Save_Data.N_S);
+ 127   3                              UartPrintf("\r\n");
+ 128   3      
+ 129   3                              UartPrintf("Save_Data.longitude = ");
+ 130   3                              UartPrintf(Save_Data.longitude);
+ 131   3                              UartPrintf("\r\n");
+ 132   3      
+ 133   3                              UartPrintf("Save_Data.E_W = ");
+ 134   3                              UartPrintf(Save_Data.E_W);
+ 135   3                              UartPrintf("\r\n");
+ 136   3                      }
+ 137   2                      else
+ 138   2                      {
+ 139   3                              UartPrintf("GPS DATA is not usefull!\r\n");
+ 140   3                      }
+ 141   2                      
+ 142   2              }
+ 143   1      }
+ 144          
+ 145          //****************************************************
+ 146          //MS延时函数
+ 147          //****************************************************
+ 148          void Delay_ms(unsigned int n)
+ 149          {
+ 150   1              unsigned int  i,j;
+ 151   1              for(i=0;i<n;i++)
+ 152   1                      for(j=0;j<123;j++);
+ 153   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    591    ----
+   CONSTANT SIZE    =    191    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

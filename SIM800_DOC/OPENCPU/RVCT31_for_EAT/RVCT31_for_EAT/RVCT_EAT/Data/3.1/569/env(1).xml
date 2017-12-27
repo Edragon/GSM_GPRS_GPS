@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ENV-SETTINGS SYSTEM 'http://www.arm.com/warehouse/warehouse-09.dtd'>
+
+<ENV-SETTINGS>
+    <ENV-GROUP>
+        <PATTERN/>
+        <ENV-INSERT>
+            <NAME>RVCT31INC</NAME>
+            <VALUE>%(BASE-CNVR)%(PFS)include%(PFS)%(directory)</VALUE>
+        </ENV-INSERT>
+        <ENV-INSERT>
+            <NAME>RVCT31LIB</NAME>
+            <VALUE>%(BASE-CNVR)%(PFS)lib</VALUE>
+        </ENV-INSERT>
+        <ENV-DELETE>RVCT31INC</ENV-DELETE>
+        <ENV-DELETE>RVCT31LIB</ENV-DELETE>
+    </ENV-GROUP>
+</ENV-SETTINGS>
+

@@ -1,0 +1,21 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\XiaoBai\Desktop\SIM868\06.基础应用代码\GSM GPRS\2、51单片机测试源码\例程（STC15W）\STC15W GPS解析\main.uvproj
+Project File Date:  12/16/2016
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=168.3 xdata=721 code=2716
+creating hex file from ".\list\main"...
+".\list\main" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: data=168.3 xdata=721 code=2716
+creating hex file from ".\list\main"...
+".\list\main" - 0 Error(s), 0 Warning(s).

@@ -1,0 +1,5 @@
+-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\CORE -I..\STM32_FWLIB\inc -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\MyCode\led -I..\MyCode\USART2 
+-I E:\2.DevelopSoft\MDK4.70A\ARM\RV31\INC 
+-I E:\2.DevelopSoft\MDK4.70A\ARM\CMSIS\Include 
+-I E:\2.DevelopSoft\MDK4.70A\ARM\Inc\ST\STM32F10x 
+-DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o "..\OBJ\usart.o" --omf_browse "..\OBJ\usart.crf" --depend "..\OBJ\usart.d" "..\SYSTEM\usart\usart.c"

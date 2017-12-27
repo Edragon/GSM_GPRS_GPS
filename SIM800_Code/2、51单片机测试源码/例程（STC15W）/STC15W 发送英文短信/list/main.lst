@@ -1,0 +1,346 @@
+C51 COMPILER V9.00   MAIN                                                                  05/12/2017 21:47:52 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\list\main.obj
+COMPILER INVOKED BY: E:\2.DevelopSoft\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND PRINT(.\list\main.lst) OBJEC
+                    -T(.\list\main.obj)
+
+line level    source
+
+   1          /*********************************************************************
+   2                           作者：神秘藏宝室
+   3                           店铺：ILoveMCU.taobao.com
+   4          
+   5                  本例程仅适用于在本店购买模块的用户使用，鄙视其它店铺的盗用行为
+   6                  版权所有，盗版必究！！！
+   7                  A6模块链接：
+   8                  A6 GSM/GPRS模块：       
+   9                  https://item.taobao.com/item.htm?id=542988971078
+  10                  A7 GSM/GPRS/GPS 三合一模块：
+  11                  https://item.taobao.com/item.htm?id=542988971078
+  12                  IAP15W4K58S4 STC15W4K56S4 最小系统：
+  13                  https://item.taobao.com/item.htm?id=539809674723
+  14                  USB-TTL模块：
+  15                  https://item.taobao.com/item.htm?id=39481188174
+  16                  移动场合供电用锂电池套装：
+  17                  https://item.taobao.com/item.htm?id=530904849115
+  18          
+  19                  A7模块          STC15W最小系统
+  20                  GND             -->             GND
+  21                  U_TXD   -->             P0.0/RXD3
+  22                  U_RXD   <--             P0.1/TXD3
+  23          
+  24                  GPS_TXD -->             P1.0/RXD2
+  25          *********************************************************************/
+  26          #include "main.h"
+  27          #include "delay.h"
+  28          #include "uart.h"
+  29          
+  30          #include <stdio.h>
+  31          #include <stdlib.h>
+  32          #include <string.h>
+  33          
+  34          
+  35          /*************  功能说明        **************
+  36          
+  37          
+  38          
+  39          ******************************************/
+  40          
+  41          /*************  本地常量声明    **************/
+  42          #define Success 1U
+  43          #define Failure 0U
+  44          
+  45          /*************  本地变量声明    **************/
+  46          unsigned long  Time_Cont = 0;       //定时器计数器
+  47          bit ledState = LED_OFF;
+  48          
+  49          unsigned int gprsBufferCount = 0;
+  50          char phoneNumber[] = "1771922xxxx";             //替换成需要被拨打电话的号码
+  51          char msg[] = "ILoveMCU.taobao.com";             //短信内容      
+  52          
+  53          
+  54          /*************  本地函数声明    **************/
+C51 COMPILER V9.00   MAIN                                                                  05/12/2017 21:47:52 PAGE 2   
+
+  55          
+  56          void phone(char *number);
+  57          void sendMessage(char *number,char *msg);
+  58          
+  59          /*************  外部函数和变量声明 *****************/
+  60          
+  61          
+  62          
+  63          /******************** IO配置函数 **************************/
+  64          void    GPIO_config(void)
+  65          {
+  66   1              P5M0 = 0;               //设置准双向口
+  67   1              P5M1 = 0;
+  68   1      }
+  69          
+  70          
+  71          
+  72          /******************** 主函数 **************************/
+  73          void main(void)
+  74          {
+  75   1              GPIO_config();
+  76   1              UartInit();
+  77   1      
+  78   1              SendString("ILoveMCU.taobao.com");
+  79   1              delay_ms(200);
+  80   1              clrStruct();
+  81   1      
+  82   1              initGprs();
+  83   1      
+  84   1              sendMessage(phoneNumber,msg);           //发送短信
+  85   1              while(1)
+  86   1              {
+  87   2                      
+  88   2              }
+  89   1      }
+  90          
+  91          void sendMessage(char *number,char *msg)
+  92          {
+  93   1              xdata char send_buf[20] = {0};
+  94   1              memset(send_buf, 0, 20);    //清空
+  95   1              strcpy(send_buf, "AT+CMGS=\"");
+  96   1              strcat(send_buf, number);
+  97   1              strcat(send_buf, "\"\r\n");
+  98   1              if (sendCommand(send_buf, ">", 3000, 10) == Success);
+  99   1              else errorLog(1);
+ 100   1              delay_ms(100);
+ 101   1      
+ 102   1              if (sendCommand(msg, msg, 3000, 5) == Success);
+ 103   1              else errorLog(2);
+ 104   1              delay_ms(100);
+ 105   1      
+ 106   1              memset(send_buf, 0, 20);    //清空
+ 107   1              send_buf[0] = 0x1a;
+ 108   1              if (sendCommand(send_buf, send_buf, 5000, 5) == Success);
+ 109   1              else errorLog(3);
+ 110   1              delay_ms(100);
+ 111   1      
+ 112   1      }
+ 113          
+ 114          void phone(char *number)
+ 115          {
+ 116   1              xdata char send_buf[30] = {0};
+C51 COMPILER V9.00   MAIN                                                                  05/12/2017 21:47:52 PAGE 3   
+
+ 117   1              memset(send_buf, 0, 20);    //清空
+ 118   1              strcpy(send_buf, "ATD");
+ 119   1              strcat(send_buf, number);
+ 120   1              strcat(send_buf, ";\r\n");
+ 121   1      
+ 122   1              if (sendCommand(send_buf, "SOUNDER", 10000, 10) == Success);
+ 123   1              else errorLog(5);
+ 124   1      }
+ 125          
+ 126          void initGprs()
+ 127          {
+ 128   1              if (sendCommand("AT\r\n", "OK", 3000, 10) == Success);
+ 129   1              else errorLog(1);
+ 130   1      
+ 131   1              if (sendCommand("AT+CPIN?\r\n", "READY", 1000, 10) == Success);
+ 132   1              else errorLog(2);
+ 133   1              delay_ms(10);
+ 134   1      
+ 135   1              if (sendCommand("AT+CMGF=1\r\n", "OK\r\n", 1000, 10) == Success);
+ 136   1              else errorLog(3);
+ 137   1              delay_ms(10);
+ 138   1      
+ 139   1              if (sendCommand("AT+CSCS=\"GSM\"\r\n", "OK\r\n", 1000, 10) == Success);
+ 140   1              else errorLog(4);
+ 141   1              delay_ms(10);
+ 142   1      
+ 143   1      }
+ 144          
+ 145          unsigned int sendCommand(char *Command, char *Response, unsigned long Timeout, unsigned char Retry)
+ 146          {
+ 147   1              unsigned char n;
+ 148   1              Uart3CLR_Buf();
+ 149   1              for (n = 0; n < Retry; n++)
+ 150   1              {
+ 151   2                      SendString("\r\n---------send AT Command:---------\r\n");
+ 152   2                      SendString(Command);
+ 153   2      
+ 154   2                      Uart3SendString(Command);               //发送GPRS指令
+ 155   2      
+ 156   2                      Time_Cont = 0;
+ 157   2                      while (Time_Cont < Timeout)
+ 158   2                      {
+ 159   3                              delay_ms(100);
+ 160   3                              Time_Cont += 100;
+ 161   3                              if (strstr(Uart3_Rec_Buf, Response) != NULL)
+ 162   3                              {
+ 163   4                                      SendString("\r\n==========receive AT Command:==========\r\n");
+ 164   4                                      SendString(Uart3_Rec_Buf); //输出接收到的信息
+ 165   4                                      Uart3CLR_Buf();
+ 166   4                                      return Success;
+ 167   4                              }
+ 168   3                              
+ 169   3                      }
+ 170   2                      Time_Cont = 0;
+ 171   2              }
+ 172   1              SendString("\r\n==========receive AT Command:==========\r\n");
+ 173   1              SendString(Uart3_Rec_Buf);//输出接收到的信息
+ 174   1              Uart3CLR_Buf();
+ 175   1              return Failure;
+ 176   1      }
+ 177          
+ 178          
+C51 COMPILER V9.00   MAIN                                                                  05/12/2017 21:47:52 PAGE 4   
+
+ 179          void soft_reset(void)    //制造重启命令
+ 180          {
+ 181   1         ((void (code *) (void)) 0x0000) ();
+ 182   1      }
+ 183          
+ 184          void errorLog(int num)
+ 185          {
+ 186   1              SendString("ERROR");
+ 187   1              SendData(num+0x30);
+ 188   1              SendString("\r\n");
+ 189   1              while (1)
+ 190   1              {
+ 191   2                      if (sendCommand("AT\r\n", "OK", 100, 10) == Success)
+ 192   2                      {
+ 193   3                              SendString("\r\nRESET!!!!!!\r\n");
+ 194   3                              soft_reset();
+ 195   3                      }
+ 196   2                      delay_ms(200);
+ 197   2              }
+ 198   1      }
+ 199          
+ 200          
+ 201          void parseGpsBuffer()
+ 202          {
+ 203   1              char *subString;
+ 204   1              char *subStringNext;
+ 205   1              char i = 0;
+ 206   1              if (Save_Data.isGetData)
+ 207   1              {
+ 208   2                      Save_Data.isGetData = false;
+ 209   2                      SendString("**************\r\n");
+ 210   2                      SendString(Save_Data.GPS_Buffer);
+ 211   2      
+ 212   2                      
+ 213   2                      for (i = 0 ; i <= 6 ; i++)
+ 214   2                      {
+ 215   3                              if (i == 0)
+ 216   3                              {
+ 217   4                                      if ((subString = strstr(Save_Data.GPS_Buffer, ",")) == NULL)
+ 218   4                                              errorLog(1);    //解析错误
+ 219   4                              }
+ 220   3                              else
+ 221   3                              {
+ 222   4                                      subString++;
+ 223   4                                      if ((subStringNext = strstr(subString, ",")) != NULL)
+ 224   4                                      {
+ 225   5                                              char usefullBuffer[2]; 
+ 226   5                                              switch(i)
+ 227   5                                              {
+ 228   6                                                      case 1:memcpy(Save_Data.UTCTime, subString, subStringNext - subString);break;   //获取UTC时间
+ 229   6                                                      case 2:memcpy(usefullBuffer, subString, subStringNext - subString);break;       //获取UTC时间
+ 230   6                                                      case 3:memcpy(Save_Data.latitude, subString, subStringNext - subString);break;  //获取纬度信息
+ 231   6                                                      case 4:memcpy(Save_Data.N_S, subString, subStringNext - subString);break;       //获取N/S
+ 232   6                                                      case 5:memcpy(Save_Data.longitude, subString, subStringNext - subString);break; //获取经度信息
+ 233   6                                                      case 6:memcpy(Save_Data.E_W, subString, subStringNext - subString);break;       //获取E/W
+ 234   6      
+ 235   6                                                      default:break;
+ 236   6                                              }
+ 237   5      
+ 238   5                                              subString = subStringNext;
+ 239   5                                              Save_Data.isParseData = true;
+ 240   5                                              if(usefullBuffer[0] == 'A')
+C51 COMPILER V9.00   MAIN                                                                  05/12/2017 21:47:52 PAGE 5   
+
+ 241   5                                                      Save_Data.isUsefull = true;
+ 242   5                                              else if(usefullBuffer[0] == 'V')
+ 243   5                                                      Save_Data.isUsefull = false;
+ 244   5      
+ 245   5                                      }
+ 246   4                                      else
+ 247   4                                      {
+ 248   5                                              errorLog(2);    //解析错误
+ 249   5                                      }
+ 250   4                              }
+ 251   3      
+ 252   3      
+ 253   3                      }
+ 254   2              }
+ 255   1      }
+ 256          
+ 257          void printGpsBuffer()
+ 258          {
+ 259   1              if (Save_Data.isParseData)
+ 260   1              {
+ 261   2                      Save_Data.isParseData = false;
+ 262   2                      
+ 263   2                      SendString("Save_Data.UTCTime = ");
+ 264   2                      SendString(Save_Data.UTCTime);
+ 265   2                      SendString("\r\n");
+ 266   2      
+ 267   2                      if(Save_Data.isUsefull)
+ 268   2                      {
+ 269   3                              Save_Data.isUsefull = false;
+ 270   3                              SendString("Save_Data.latitude = ");
+ 271   3                              SendString(Save_Data.latitude);
+ 272   3                              SendString("\r\n");
+ 273   3      
+ 274   3      
+ 275   3                              SendString("Save_Data.N_S = ");
+ 276   3                              SendString(Save_Data.N_S);
+ 277   3                              SendString("\r\n");
+ 278   3      
+ 279   3                              SendString("Save_Data.longitude = ");
+ 280   3                              SendString(Save_Data.longitude);
+ 281   3                              SendString("\r\n");
+ 282   3      
+ 283   3                              SendString("Save_Data.E_W = ");
+ 284   3                              SendString(Save_Data.E_W);
+ 285   3                              SendString("\r\n");
+ 286   3      
+ 287   3                              LED = ledState;
+ 288   3                              ledState = ~ledState;
+ 289   3      
+ 290   3                      }
+ 291   2                      else
+ 292   2                      {
+ 293   3                              SendString("GPS DATA is not usefull!\r\n");
+ 294   3                      }
+ 295   2                      
+ 296   2              }
+ 297   1      }
+ 298          
+ 299          
+ 300          void clrStruct()
+ 301          {
+ 302   1              Save_Data.isGetData = false;
+C51 COMPILER V9.00   MAIN                                                                  05/12/2017 21:47:52 PAGE 6   
+
+ 303   1              Save_Data.isParseData = false;
+ 304   1              Save_Data.isUsefull = false;
+ 305   1              memset(Save_Data.GPS_Buffer, 0, GPS_Buffer_Length);      //清空
+ 306   1              memset(Save_Data.UTCTime, 0, UTCTime_Length);
+ 307   1              memset(Save_Data.latitude, 0, latitude_Length);
+ 308   1              memset(Save_Data.N_S, 0, N_S_Length);
+ 309   1              memset(Save_Data.longitude, 0, longitude_Length);
+ 310   1              memset(Save_Data.E_W, 0, E_W_Length);
+ 311   1              
+ 312   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1508    ----
+   CONSTANT SIZE    =    414    ----
+   XDATA SIZE       =   ----      50
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     38      32
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

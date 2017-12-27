@@ -1,0 +1,28 @@
+硬件串口方式连接：
+GSM模块			ARDUINO UNO板子
+V_MCU----------->5V
+GND------------->GND
+T-TX------------>RX  数字0
+T-RX------------>TX  数字1
+
+虚拟串口接电脑调试
+USB-TTL模块			ARDUINO UNO板子
+GND------------->GND
+RX------------>数字11
+TX------------>数字10
+
+常用配件链接：
+	SIM800C开发板：
+	https://item.taobao.com/item.htm?id=521599424969
+	ARDUINO UNO R3开发板：
+	https://item.taobao.com/item.htm?id=27554596680
+	ARDUINO MEGA2560 R3开发板：
+	https://item.taobao.com/item.htm?id=38041409136
+	USB-TTL模块：
+	https://item.taobao.com/item.htm?id=39481188174
+	锂电池套装适合移动场合给GSM模块供电：
+	https://item.taobao.com/item.htm?id=530904849115
+
+
+
+

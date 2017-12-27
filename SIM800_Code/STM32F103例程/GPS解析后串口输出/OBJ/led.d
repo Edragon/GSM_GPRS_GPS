@@ -1,0 +1,13 @@
+..\OBJ\led.o: ..\MyCode\led\LED.c
+..\OBJ\led.o: ..\MyCode\led\LED.h
+..\OBJ\led.o: ..\SYSTEM\sys\sys.h
+..\OBJ\led.o: ..\USER\stm32f10x.h
+..\OBJ\led.o: ..\CORE\core_cm3.h
+..\OBJ\led.o: E:\2.DevelopSoft\MDK4.70A\ARM\ARMCC\bin\..\include\stdint.h
+..\OBJ\led.o: ..\USER\system_stm32f10x.h
+..\OBJ\led.o: ..\USER\stm32f10x_conf.h
+..\OBJ\led.o: ..\STM32_FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\led.o: ..\USER\stm32f10x.h
+..\OBJ\led.o: ..\STM32_FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\led.o: ..\STM32_FWLIB\inc\stm32f10x_usart.h
+..\OBJ\led.o: ..\STM32_FWLIB\inc\misc.h

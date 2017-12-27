@@ -1,0 +1,18 @@
+//先让GSM/GPRS状态正确（指示灯闪烁正常已经获取SIM卡信号）
+再接线运行代码
+
+//本代码使用STC89C52RC单片机
+//晶振11.0592MHz下测试[必须使用11.0592M,不能用12M晶振]
+//测试使用的板子
+	STC89C52最小系统
+	https://item.taobao.com/item.htm?id=524713612727
+	SIM800C GSM/GPRS模块
+	https://item.taobao.com/item.htm?id=521599424969
+	
+		接线方式：
+	SIM800         STC89C52
+	V_MCU--------->5V
+	GND----------->GND
+	T-TX---------->P3.0(RXD)
+	T-RX---------->P3.1(TXD)
+	

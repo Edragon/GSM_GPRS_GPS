@@ -1,0 +1,17 @@
+..\OBJ\main.o: main.c
+..\OBJ\main.o: stm32f10x.h
+..\OBJ\main.o: ..\CORE\core_cm3.h
+..\OBJ\main.o: E:\2.DevelopSoft\MDK4.70A\ARM\ARMCC\bin\..\include\stdint.h
+..\OBJ\main.o: system_stm32f10x.h
+..\OBJ\main.o: stm32f10x_conf.h
+..\OBJ\main.o: ..\STM32_FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\main.o: ..\USER\stm32f10x.h
+..\OBJ\main.o: ..\STM32_FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\main.o: ..\STM32_FWLIB\inc\stm32f10x_usart.h
+..\OBJ\main.o: ..\STM32_FWLIB\inc\misc.h
+..\OBJ\main.o: ..\SYSTEM\delay\delay.h
+..\OBJ\main.o: ..\SYSTEM\sys\sys.h
+..\OBJ\main.o: ..\SYSTEM\usart\usart.h
+..\OBJ\main.o: E:\2.DevelopSoft\MDK4.70A\ARM\ARMCC\bin\..\include\stdio.h
+..\OBJ\main.o: E:\2.DevelopSoft\MDK4.70A\ARM\ARMCC\bin\..\include\string.h
+..\OBJ\main.o: ..\MyCode\led\led.h

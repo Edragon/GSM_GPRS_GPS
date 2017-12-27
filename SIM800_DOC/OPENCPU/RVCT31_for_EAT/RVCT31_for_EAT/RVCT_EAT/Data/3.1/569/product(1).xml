@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE PRODUCT-INFO SYSTEM 'http://www.arm.com/warehouse/warehouse-09.dtd'>
+
+<PRODUCT-INFO keys="platform,regime" name="RVCT Programs 3.1">
+    <DESCRIPTION>RVCT Data 3.1 (Coalesced suite of core tools libraries - currently clib, fplib, mathlib, fpengine )</DESCRIPTION>
+    <VARIETIES>
+        <VARIETY chosen="0" name="Windows Libraries">
+            <VAR n="directory" v="windows"/>
+            <VAR n="platform" v="win-all"/>
+            <VAR n="regime" v="rel"/>
+            <SEGMENT here="1" host="linux-pentium"/>
+        </VARIETY>
+        <VARIETY chosen="0" name="UNIX Libraries">
+            <VAR n="directory" v="unix"/>
+            <VAR n="platform" v="unix-all"/>
+            <VAR n="regime" v="rel"/>
+            <SEGMENT here="0" host="linux-pentium"/>
+        </VARIETY>
+    </VARIETIES>
+</PRODUCT-INFO>
+

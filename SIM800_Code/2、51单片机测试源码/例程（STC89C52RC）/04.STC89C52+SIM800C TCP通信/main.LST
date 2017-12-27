@@ -1,0 +1,235 @@
+C51 COMPILER V9.00   MAIN                                                                  06/01/2017 21:01:53 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\2.DevelopSoft\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*********************************************************************
+   2                           作者：神秘藏宝室
+   3                           店铺：ILoveMCU.taobao.com
+   4          
+   5                  本例程仅适用于在本店购买模块的用户使用，鄙视其它店铺的盗用行为
+   6                  版权所有，盗版必究！！！
+   7                  SIM800 GSM/GPRS模块
+   8                  https://item.taobao.com/item.htm?id=521599424969
+   9                  STC89C52最小系统：
+  10                  https://item.taobao.com/item.htm?id=524713612727
+  11                  STC12C5A60S2最小系统：
+  12                  https://item.taobao.com/item.htm?id=524701473371
+  13                  USB-TTL模块：
+  14                  https://item.taobao.com/item.htm?id=39481188174
+  15                  移动电源锂电池套装
+  16                  https://item.taobao.com/item.htm?id=530904849115
+  17                  移动场合供电用锂电池套装：
+  18                  https://item.taobao.com/item.htm?id=530904849115
+  19          *********************************************************************/
+  20          
+  21          #include "main.h"
+  22          #include "uart.h"
+  23          
+  24          //常量
+  25          #define Success 1U
+  26          #define Failure 0U
+  27          
+  28          //定义变量
+  29          unsigned long  Time_Cont = 0;       //定时器计数器
+  30          
+  31          unsigned int count = 0;
+  32          
+  33          char phoneNumber[] = "1771922xxxx";             //替换成需要被拨打电话的号码
+  34          char msg[] = "ILoveMCU.taobao.com";             //短信内容
+  35          
+  36          const char TCPServer[] = "103.44.145.245";              //TCP服务器地址
+  37          const char Port[] = "43928";                                            //端口  
+  38          
+  39          //****************************************************
+  40          //主函数
+  41          //****************************************************
+  42          void main()
+  43          {
+  44   1      
+  45   1          Uart_Init();                                                  
+  46   1      
+  47   1              if (sendCommand("AT\r\n", "OK\r\n", 3000, 10) == Success);
+  48   1              else errorLog();
+  49   1              delay_ms(10);
+  50   1      
+  51   1              if (sendCommand("AT+CPIN?\r\n", "READY", 1000, 10) == Success);
+  52   1              else errorLog();
+  53   1              delay_ms(10);
+  54   1      
+  55   1      
+C51 COMPILER V9.00   MAIN                                                                  06/01/2017 21:01:53 PAGE 2   
+
+  56   1              if (sendCommand("AT+CGCLASS=\"B\"\r\n", "OK\r\n", 1000, 10) == Success);
+  57   1              else errorLog();
+  58   1              delay_ms(10);
+  59   1      
+  60   1              if (sendCommand("AT+CGDCONT=1,\"IP\",\"CMNET\"\r\n", "OK\r\n", 5000, 2) == Success);
+  61   1              else errorLog();
+  62   1              delay_ms(10);
+  63   1      
+  64   1      
+  65   1              if (sendCommand("AT+CGATT=1\r\n","OK\r\n", 1000, 10) == Success);
+  66   1              else errorLog();
+  67   1              delay_ms(10);
+  68   1      
+  69   1      
+  70   1      
+  71   1              while(1)
+  72   1              {       
+  73   2                      xdata char send_buf[100] = {0};
+  74   2                      memset(send_buf, 0, 100);    //清空
+  75   2                      strcpy(send_buf, "AT+CIPSTART=\"TCP\",\"");
+  76   2                      strcat(send_buf, TCPServer);
+  77   2                      strcat(send_buf, "\",\"");
+  78   2                      strcat(send_buf, Port);
+  79   2                      strcat(send_buf, "\"\r\n");
+  80   2                      if (sendCommand(send_buf, "CONNECT", 10000, 5) == Success);
+  81   2                      else errorLog();
+  82   2                      delay_ms(100);
+  83   2              
+  84   2                      while(1)
+  85   2                      {
+  86   3                              //发送数据
+  87   3                              if (sendCommand("AT+CIPSEND\r\n", ">", 3000, 5) == Success);
+  88   3                              else errorLog();
+  89   3                              delay_ms(10);
+  90   3              
+  91   3                              memset(send_buf, 0, 100);    //清空
+  92   3                              sprintf(send_buf,"ILoveMCU.taobao.com %d\r\n",count);
+  93   3                              count++;
+  94   3                              
+  95   3              
+  96   3                              if (sendCommand(send_buf, send_buf, 3000, 1) == Success);
+  97   3                              else errorLog();
+  98   3                              delay_ms(10);
+  99   3              
+ 100   3                              memset(send_buf, 0, 100);    //清空
+ 101   3                              send_buf[0] = 0x1a;
+ 102   3                              if (sendCommand(send_buf, send_buf, 5000, 5) == Success);
+ 103   3                              else errorLog();
+ 104   3                              delay_ms(500);
+ 105   3              
+ 106   3                      }
+ 107   2              
+ 108   2              
+ 109   2                      if (sendCommand("AT+CIPCLOSE=1\r\n", "OK\r\n", 5000, 10) == Success);
+ 110   2                      else errorLog();
+ 111   2                      delay_ms(100);
+ 112   2              
+ 113   2                      if (sendCommand("AT+CIPSHUT\r\n", "OK\r\n", 5000, 10) == Success);
+ 114   2                      else errorLog();
+ 115   2              
+ 116   2              
+ 117   2                      delay_ms(1000); 
+C51 COMPILER V9.00   MAIN                                                                  06/01/2017 21:01:53 PAGE 3   
+
+ 118   2              }
+ 119   1      }
+ 120          
+ 121          void sendMessage(char *number,char *msg)
+ 122          {
+ 123   1              xdata char send_buf[20] = {0};
+ 124   1              memset(send_buf, 0, 20);    //清空
+ 125   1              strcpy(send_buf, "AT+CMGS=\"");
+ 126   1              strcat(send_buf, number);
+ 127   1              strcat(send_buf, "\"\r\n");
+ 128   1              if (sendCommand(send_buf, ">", 3000, 10) == Success);
+ 129   1              else errorLog();
+ 130   1      
+ 131   1              if (sendCommand(msg, msg, 3000, 10) == Success);
+ 132   1              else errorLog();
+ 133   1      
+ 134   1              memset(send_buf, 0, 40);    //清空
+ 135   1              send_buf[0] = 0x1a;
+ 136   1              send_buf[1] = '\0';
+ 137   1              if (sendCommand(send_buf, "OK\r\n", 10000, 5) == Success);
+ 138   1              else errorLog();
+ 139   1      }
+ 140          
+ 141          void phone(char *number)
+ 142          {
+ 143   1              char send_buf[20] = {0};
+ 144   1              memset(send_buf, 0, 20);    //清空
+ 145   1              strcpy(send_buf, "ATD");
+ 146   1              strcat(send_buf, number);
+ 147   1              strcat(send_buf, ";\r\n");
+ 148   1      
+ 149   1              if (sendCommand(send_buf, "OK\r\n", 10000, 10) == Success);
+ 150   1              else errorLog();
+ 151   1      }
+ 152          
+ 153          void errorLog()
+ 154          {
+ 155   1              while (1)
+ 156   1              {
+ 157   2                      if (sendCommand("AT\r\n", "OK\r\n", 100, 10) == Success)
+ 158   2                      {
+ 159   3                              soft_reset();
+ 160   3                      }
+ 161   2                      delay_ms(200);
+ 162   2              }
+ 163   1      }
+ 164          
+ 165          void soft_reset(void)    //制造重启命令
+ 166          {
+ 167   1         ((void (code *) (void)) 0x0000) ();
+ 168   1      }
+ 169          
+ 170          unsigned int sendCommand(char *Command, char *Response, unsigned long Timeout, unsigned char Retry)
+ 171          {
+ 172   1              unsigned char n;
+ 173   1              CLR_Buf();
+ 174   1              for (n = 0; n < Retry; n++)
+ 175   1              {
+ 176   2                      SendString(Command);            //发送GPRS指令
+ 177   2      
+ 178   2                      Time_Cont = 0;
+ 179   2                      while (Time_Cont < Timeout)
+C51 COMPILER V9.00   MAIN                                                                  06/01/2017 21:01:53 PAGE 4   
+
+ 180   2                      {
+ 181   3                              delay_ms(100);
+ 182   3                              Time_Cont += 100;
+ 183   3                              if (strstr(Rec_Buf, Response) != NULL)
+ 184   3                              {
+ 185   4                                      
+ 186   4                                      CLR_Buf();
+ 187   4                                      return Success;
+ 188   4                              }
+ 189   3                              
+ 190   3                      }
+ 191   2                      Time_Cont = 0;
+ 192   2              }
+ 193   1              
+ 194   1              CLR_Buf();
+ 195   1              return Failure;
+ 196   1      }
+ 197          
+ 198          //****************************************************
+ 199          //MS延时函数(12M晶振下测试)
+ 200          //****************************************************
+ 201          void delay_ms(unsigned int n)
+ 202          {
+ 203   1              unsigned int  i,j;
+ 204   1                      for(i=0;i<n;i++)
+ 205   1                              for(j=0;j<123;j++);
+ 206   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1176    ----
+   CONSTANT SIZE    =    348    ----
+   XDATA SIZE       =   ----     120
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     59      41
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

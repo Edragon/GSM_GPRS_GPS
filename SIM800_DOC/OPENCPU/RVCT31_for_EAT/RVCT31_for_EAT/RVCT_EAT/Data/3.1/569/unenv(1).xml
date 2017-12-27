@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ENV-SETTINGS SYSTEM 'http://www.arm.com/warehouse/warehouse-09.dtd'>
+
+<ENV-SETTINGS>
+    <ENV-GROUP>
+        <PATTERN/>
+        <ENV-DELETE>RVCT31INC</ENV-DELETE>
+        <ENV-DELETE>RVCT31LIB</ENV-DELETE>
+    </ENV-GROUP>
+</ENV-SETTINGS>
+

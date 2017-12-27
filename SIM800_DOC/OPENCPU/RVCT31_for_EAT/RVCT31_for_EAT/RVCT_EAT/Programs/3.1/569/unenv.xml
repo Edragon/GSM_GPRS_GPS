@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ENV-SETTINGS SYSTEM 'http://www.arm.com/warehouse/warehouse-09.dtd'>
+
+<ENV-SETTINGS>
+    <ENV-GROUP>
+        <PATTERN>
+            <MATCH>
+                <VAR n="encryption" v="none"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="capability" v="eval2,i3d,uVision"/>
+                <VAR n="regime" v="rel,rel_pdb"/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+            </MATCH>
+        </PATTERN>
+        <ENV-REMOVE>
+            <NAME>PATH</NAME>
+            <VALUE>%(BASE-CNVR)%(PFS)%(capability)%(PFS)%(platform)</VALUE>
+        </ENV-REMOVE>
+        <ENV-REMOVE>
+            <NAME>RVCT31BIN</NAME>
+            <VALUE>%(BASE-CNVR)%(PFS)%(capability)%(PFS)%(platform)</VALUE>
+        </ENV-REMOVE>
+    </ENV-GROUP>
+    <ENV-GROUP>
+        <PATTERN>
+            <MATCH>
+                <VAR n="encryption" v="none"/>
+                <VAR n="base_os" v="linux"/>
+                <VAR n="packager" v="redhat"/>
+                <VAR n="pkg_version" v="10.3"/>
+                <VAR n="kernel_version" v="2.4"/>
+                <VAR n="arch_id" v="linux_2.4-redhat_10.3-i686"/>
+                <VAR n="platform" v="linux-pentium"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vers1" v="4.1.1"/>
+                <VAR n="c-toolcol1" v="gcc:4.1.1:1"/>
+                <VAR n="c-toolloc1" v="linux_2.4-redhat_10.3-i686/gcc-4.1.1/bin/gcc"/>
+                <VAR n="c-compiler" v="gcc-4.1.1"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="encryption" v="none"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="encryption" v="none"/>
+                <VAR n="base_os" v="solaris"/>
+                <VAR n="packager" v="sun"/>
+                <VAR n="pkg_version" v="9"/>
+                <VAR n="kernel_version" v="5.9"/>
+                <VAR n="arch_id" v="solaris_5.9-sun_9-sparc"/>
+                <VAR n="platform" v="solaris-sparc"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vers1" v="3.4.4"/>
+                <VAR n="c-toolcol1" v="VIA-/arm/eda/collect/devsys/3_4_4/setup_paths.sh"/>
+                <VAR n="c-toolloc1" v="/arm/eda/collect/devsys/3_4_4/solaris_9-sparc/bin/gcc"/>
+                <VAR n="c-compiler" v="gcc-3.4.4"/>
+            </MATCH>
+        </PATTERN>
+        <ENV-REMOVE>
+            <NAME>PATH</NAME>
+            <VALUE>%(BASE-CNVR)%(PFS)%(directory)</VALUE>
+        </ENV-REMOVE>
+        <ENV-REMOVE>
+            <NAME>RVCT31BIN</NAME>
+            <VALUE>%(BASE-CNVR)%(PFS)%(directory)</VALUE>
+        </ENV-REMOVE>
+    </ENV-GROUP>
+    <ENV-GROUP>
+        <PATTERN>
+            <MATCH>
+                <VAR n="encryption" v="none"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="capability" v="eval2,i3d,uVision"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+            </MATCH>
+        </PATTERN>
+        <ENV-REMOVE>
+            <NAME>PATH</NAME>
+            <VALUE>%(BASE-CNVR)%(PFS)%(capability)%(PFS)%(platform)-%(regime)</VALUE>
+        </ENV-REMOVE>
+        <ENV-REMOVE>
+            <NAME>RVCT31BIN</NAME>
+            <VALUE>%(BASE-CNVR)%(PFS)%(capability)%(PFS)%(platform)-%(regime)</VALUE>
+        </ENV-REMOVE>
+    </ENV-GROUP>
+    <ENV-GROUP>
+        <PATTERN>
+            <MATCH>
+                <VAR n="encryption" v="none"/>
+                <VAR n="base_os" v="linux"/>
+                <VAR n="packager" v="redhat"/>
+                <VAR n="pkg_version" v="10.3"/>
+                <VAR n="kernel_version" v="2.4"/>
+                <VAR n="arch_id" v="linux_2.4-redhat_10.3-i686"/>
+                <VAR n="platform" v="linux-pentium"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="regime" v="rel"/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vers1" v="4.1.1"/>
+                <VAR n="c-toolcol1" v="gcc:4.1.1:1"/>
+                <VAR n="c-toolloc1" v="linux_2.4-redhat_10.3-i686/gcc-4.1.1/bin/gcc"/>
+                <VAR n="c-compiler" v="gcc-4.1.1"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="encryption" v="none"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="regime" v="rel,rel_pdb"/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="encryption" v="none"/>
+                <VAR n="base_os" v="solaris"/>
+                <VAR n="packager" v="sun"/>
+                <VAR n="pkg_version" v="9"/>
+                <VAR n="kernel_version" v="5.9"/>
+                <VAR n="arch_id" v="solaris_5.9-sun_9-sparc"/>
+                <VAR n="platform" v="solaris-sparc"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="regime" v="rel"/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vers1" v="3.4.4"/>
+                <VAR n="c-toolcol1" v="VIA-/arm/eda/collect/devsys/3_4_4/setup_paths.sh"/>
+                <VAR n="c-toolloc1" v="/arm/eda/collect/devsys/3_4_4/solaris_9-sparc/bin/gcc"/>
+                <VAR n="c-compiler" v="gcc-3.4.4"/>
+            </MATCH>
+        </PATTERN>
+        <ENV-REMOVE>
+            <NAME>PATH</NAME>
+            <VALUE>%(BASE-CNVR)%(PFS)%(platform)</VALUE>
+        </ENV-REMOVE>
+        <ENV-REMOVE>
+            <NAME>RVCT31BIN</NAME>
+            <VALUE>%(BASE-CNVR)%(PFS)%(platform)</VALUE>
+        </ENV-REMOVE>
+    </ENV-GROUP>
+</ENV-SETTINGS>
+

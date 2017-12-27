@@ -1,0 +1,150 @@
+C51 COMPILER V9.00   MAIN                                                                  06/01/2017 21:02:57 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\2.DevelopSoft\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*********************************************************************
+   2                           作者：神秘藏宝室
+   3                           店铺：ILoveMCU.taobao.com
+   4          
+   5                  本例程仅适用于在本店购买模块的用户使用，鄙视其它店铺的盗用行为
+   6                  版权所有，盗版必究！！！
+   7                  SIM800 GSM/GPRS模块
+   8                  https://item.taobao.com/item.htm?id=521599424969
+   9                  STC89C52最小系统：
+  10                  https://item.taobao.com/item.htm?id=524713612727
+  11                  STC12C5A60S2最小系统：
+  12                  https://item.taobao.com/item.htm?id=524701473371
+  13                  USB-TTL模块：
+  14                  https://item.taobao.com/item.htm?id=39481188174
+  15                  移动电源锂电池套装
+  16                  https://item.taobao.com/item.htm?id=530904849115
+  17                  移动场合供电用锂电池套装：
+  18                  https://item.taobao.com/item.htm?id=530904849115
+  19          *********************************************************************/
+  20          
+  21          #include "main.h"
+  22          #include "uart.h"
+  23          
+  24          //常量
+  25          #define Success 1U
+  26          #define Failure 0U
+  27          
+  28          //定义变量
+  29          unsigned long  Time_Cont = 0;       //定时器计数器
+  30          
+  31          char phoneNumber[] = "1771922xxxx";             //替换成需要被拨打电话的号码
+  32          
+  33          //****************************************************
+  34          //主函数
+  35          //****************************************************
+  36          void main()
+  37          {
+  38   1      
+  39   1          Uart_Init();                                                  
+  40   1      
+  41   1              if (sendCommand("AT\r\n", "OK\r\n", 3000, 10) == Success);
+  42   1              else errorLog();
+  43   1              delay_ms(10);
+  44   1      
+  45   1              if (sendCommand("AT+CPIN?\r\n", "READY", 1000, 10) == Success);
+  46   1              else errorLog();
+  47   1              delay_ms(10);
+  48   1      
+  49   1      
+  50   1              phone(phoneNumber);             //打电话
+  51   1      
+  52   1              while(1)
+  53   1              {       
+  54   2      
+  55   2              }
+C51 COMPILER V9.00   MAIN                                                                  06/01/2017 21:02:57 PAGE 2   
+
+  56   1      }
+  57          
+  58          void phone(char *number)
+  59          {
+  60   1              char send_buf[20] = {0};
+  61   1              memset(send_buf, 0, 20);    //清空
+  62   1              strcpy(send_buf, "ATD");
+  63   1              strcat(send_buf, number);
+  64   1              strcat(send_buf, ";\r\n");
+  65   1      
+  66   1              if (sendCommand(send_buf, "OK\r\n", 10000, 10) == Success);
+  67   1              else errorLog();
+  68   1      }
+  69          
+  70          void errorLog()
+  71          {
+  72   1              while (1)
+  73   1              {
+  74   2                      if (sendCommand("AT\r\n", "OK\r\n", 100, 10) == Success)
+  75   2                      {
+  76   3                              soft_reset();
+  77   3                      }
+  78   2                      delay_ms(200);
+  79   2              }
+  80   1      }
+  81          
+  82          void soft_reset(void)    //制造重启命令
+  83          {
+  84   1         ((void (code *) (void)) 0x0000) ();
+  85   1      }
+  86          
+  87          unsigned int sendCommand(char *Command, char *Response, unsigned long Timeout, unsigned char Retry)
+  88          {
+  89   1              unsigned char n;
+  90   1              CLR_Buf();
+  91   1              for (n = 0; n < Retry; n++)
+  92   1              {
+  93   2                      SendString(Command);            //发送GPRS指令
+  94   2      
+  95   2                      Time_Cont = 0;
+  96   2                      while (Time_Cont < Timeout)
+  97   2                      {
+  98   3                              delay_ms(100);
+  99   3                              Time_Cont += 100;
+ 100   3                              if (strstr(Rec_Buf, Response) != NULL)
+ 101   3                              {
+ 102   4                                      
+ 103   4                                      CLR_Buf();
+ 104   4                                      return Success;
+ 105   4                              }
+ 106   3                              
+ 107   3                      }
+ 108   2                      Time_Cont = 0;
+ 109   2              }
+ 110   1              
+ 111   1              CLR_Buf();
+ 112   1              return Failure;
+ 113   1      }
+ 114          
+ 115          //****************************************************
+ 116          //MS延时函数(12M晶振下测试)
+ 117          //****************************************************
+C51 COMPILER V9.00   MAIN                                                                  06/01/2017 21:02:57 PAGE 3   
+
+ 118          void delay_ms(unsigned int n)
+ 119          {
+ 120   1              unsigned int  i,j;
+ 121   1                      for(i=0;i<n;i++)
+ 122   1                              for(j=0;j<123;j++);
+ 123   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    451    ----
+   CONSTANT SIZE    =     55    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     16      35
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

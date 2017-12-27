@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE PARTLIST SYSTEM 'http://www.arm.com/warehouse/warehouse-09.dtd'>
+
+<PARTLIST>
+    <PARTSPEC>
+        <PATTERN>
+            <MATCH>
+                <VAR n="directory" v="eval2\win_32-pentium-dbg"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="eval2"/>
+                <VAR n="cap_dir" v="eval2\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="uVision\win_32-pentium-dbg"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="uVision"/>
+                <VAR n="cap_dir" v="uVision\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="i3d\win_32-pentium-dbg"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="i3d"/>
+                <VAR n="cap_dir" v="i3d\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+        </PATTERN>
+        <PARTS>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\armcpp%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\tcc%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\tcpp%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\fromelf%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\armlink.pdb"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\armlink%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\armar.pdb"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\armcc.pdb"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\armasm.pdb"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\fromelf.pdb"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\armar%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\armasm%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)-%(regime)\armcc%(PEXE)"/>
+        </PARTS>
+    </PARTSPEC>
+    <PARTSPEC>
+        <PATTERN>
+            <MATCH>
+                <VAR n="directory" v="uVision\win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="uVision"/>
+                <VAR n="cap_dir" v="uVision\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="i3d\win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="i3d"/>
+                <VAR n="cap_dir" v="i3d\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="eval2\win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="eval2"/>
+                <VAR n="cap_dir" v="eval2\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+        </PATTERN>
+        <PARTS>
+            <FILE executable="true" name="%(cap_dir)\armlink%(PEXE)"/>
+            <FILE executable="true" name="%(cap_dir)\armcc%(PEXE)"/>
+            <FILE executable="true" name="%(cap_dir)\fromelf%(PEXE)"/>
+            <FILE executable="true" name="%(cap_dir)\tcpp%(PEXE)"/>
+            <FILE executable="true" name="%(cap_dir)\armcpp%(PEXE)"/>
+            <FILE executable="true" name="%(cap_dir)\armasm%(PEXE)"/>
+            <FILE executable="true" name="%(cap_dir)\tcc%(PEXE)"/>
+            <FILE executable="true" name="%(cap_dir)\armar%(PEXE)"/>
+        </PARTS>
+    </PARTSPEC>
+    <PARTSPEC>
+        <PATTERN>
+            <MATCH>
+                <VAR n="directory" v="win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel_pdb"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+        </PATTERN>
+        <PARTS>
+            <FILE executable="true" name="%(platform)\fromelf.pdb"/>
+            <FILE executable="true" name="%(platform)\armar.pdb"/>
+            <FILE executable="true" name="%(platform)\armcc.pdb"/>
+            <FILE executable="true" name="%(platform)\armlink.pdb"/>
+            <FILE executable="true" name="%(platform)\armasm.pdb"/>
+        </PARTS>
+    </PARTSPEC>
+    <PARTSPEC>
+        <PATTERN>
+            <MATCH>
+                <VAR n="directory" v="win_32-pentium-dbg"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+        </PATTERN>
+        <PARTS>
+            <FILE executable="true" name="%(directory)\armar.pdb"/>
+            <FILE executable="true" name="%(directory)\armasm%(PEXE)"/>
+            <FILE executable="true" name="%(directory)\tcc%(PEXE)"/>
+            <FILE executable="true" name="%(directory)\fromelf.pdb"/>
+            <FILE executable="true" name="%(directory)\armcc%(PEXE)"/>
+            <FILE executable="true" name="%(directory)\armar%(PEXE)"/>
+            <FILE executable="true" name="%(directory)\armcc.pdb"/>
+            <FILE executable="true" name="%(directory)\armlink%(PEXE)"/>
+            <FILE executable="true" name="%(directory)\armasm.pdb"/>
+            <FILE executable="true" name="%(directory)\fromelf%(PEXE)"/>
+            <FILE executable="true" name="%(directory)\tcpp%(PEXE)"/>
+            <FILE executable="true" name="%(directory)\armcpp%(PEXE)"/>
+            <FILE executable="true" name="%(directory)\armlink.pdb"/>
+        </PARTS>
+    </PARTSPEC>
+    <PARTSPEC>
+        <PATTERN>
+            <MATCH>
+                <VAR n="directory" v="win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel_pdb,rel"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+        </PATTERN>
+        <PARTS>
+            <FILE executable="true" md5hash="ac056c65803e0b2f4d8f12f7c5b2c91b" name="%(platform)\armcc%(PEXE)"/>
+            <FILE executable="true" md5hash="ac056c65803e0b2f4d8f12f7c5b2c91b" name="%(platform)\armcpp%(PEXE)"/>
+            <FILE executable="true" md5hash="59101a28d1d48ab288cd60094b05f24e" name="%(platform)\armlink%(PEXE)"/>
+            <FILE executable="true" md5hash="9767c649495e09c409b0e91768a16d7a" name="%(platform)\fromelf%(PEXE)"/>
+            <FILE executable="true" md5hash="6669e39ed8757c350c53970eba9e6a77" name="%(platform)\armar%(PEXE)"/>
+            <FILE executable="true" md5hash="ac056c65803e0b2f4d8f12f7c5b2c91b" name="%(platform)\tcpp%(PEXE)"/>
+            <FILE executable="true" md5hash="ac056c65803e0b2f4d8f12f7c5b2c91b" name="%(platform)\tcc%(PEXE)"/>
+            <FILE executable="true" md5hash="76300e4cd6070c449fadc66f0afbbad5" name="%(platform)\armasm%(PEXE)"/>
+        </PARTS>
+    </PARTSPEC>
+    <PARTSPEC>
+        <PATTERN>
+            <MATCH>
+                <VAR n="directory" v="linux-pentium"/>
+                <VAR n="packager" v="redhat"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="prof_rel"/>
+                <VAR n="c-vers1" v="4.1.1"/>
+                <VAR n="c-toolcol1" v="gcc:4.1.1:1"/>
+                <VAR n="platform" v="linux-pentium"/>
+                <VAR n="kernel_version" v="2.4"/>
+                <VAR n="base_os" v="linux"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="linux-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vv_id1" v="base_os:=:linux|packager:=:redhat|pkg_version:=:10.3|kernel_version:=:2.4|arch_id:=:linux_2.4-redhat_10.3-i686|eda-root:=:/arm/devsys-tools/collections|platform:=:linux-pentium|regime:=:rel|c-tool1:=:gcc|c-vers1:=:4.1.1|c-toolcol1:=:gcc:4.1.1:1|c-toolloc1:=:linux_2.4-redhat_10.3-i686/gcc-3.4.4/bin/gcc|c-compiler:=:gcc-4.1.1"/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="gcc-4.1.1"/>
+                <VAR n="regime" v="rel"/>
+                <VAR n="pkg_version" v="10.3"/>
+                <VAR n="c-toolloc1" v="linux_2.4-redhat_10.3-i686/gcc-4.1.1/bin/gcc"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="linux_2.4-redhat_10.3-i686"/>
+            </MATCH>
+        </PATTERN>
+        <PARTS>
+            <FILE executable="true" md5hash="183e43e8fecb321fe3d6eee263e0951e" name="%(platform)\armlink"/>
+            <FILE executable="true" md5hash="ae1bff3730e1f165dcf9ac4776c1c334" name="%(platform)\armcpp"/>
+            <FILE executable="true" md5hash="9a774b790c8aa986fb4d821057db9a4a" name="%(platform)\armar"/>
+            <FILE executable="true" md5hash="ae1bff3730e1f165dcf9ac4776c1c334" name="%(platform)\tcc"/>
+            <FILE executable="true" md5hash="a421c1450edf962a1401aafeba9be9c5" name="%(platform)\fromelf"/>
+            <FILE executable="true" md5hash="aa5a0ea18d71e5f8e3eef82e50733792" name="%(platform)\armasm"/>
+            <FILE executable="true" md5hash="ae1bff3730e1f165dcf9ac4776c1c334" name="%(platform)\armcc"/>
+            <FILE executable="true" md5hash="ae1bff3730e1f165dcf9ac4776c1c334" name="%(platform)\tcpp"/>
+        </PARTS>
+    </PARTSPEC>
+    <PARTSPEC>
+        <PATTERN>
+            <MATCH>
+                <VAR n="directory" v="eval2\win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="eval2"/>
+                <VAR n="cap_dir" v="eval2\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel_pdb"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="uVision\win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="uVision"/>
+                <VAR n="cap_dir" v="uVision\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel_pdb"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="i3d\win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="i3d"/>
+                <VAR n="cap_dir" v="i3d\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel_pdb"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+        </PATTERN>
+        <PARTS>
+            <FILE executable="true" name="%(capability)\%(platform)\tcpp%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)\tcc%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)\armar%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)\fromelf%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)\armar.pdb"/>
+            <FILE executable="true" name="%(capability)\%(platform)\armcc%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)\armcpp%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)\armlink.pdb"/>
+            <FILE executable="true" name="%(capability)\%(platform)\armlink%(PEXE)"/>
+            <FILE executable="true" name="%(capability)\%(platform)\fromelf.pdb"/>
+            <FILE executable="true" name="%(capability)\%(platform)\armcc.pdb"/>
+            <FILE executable="true" name="%(capability)\%(platform)\armasm.pdb"/>
+            <FILE executable="true" name="%(capability)\%(platform)\armasm%(PEXE)"/>
+        </PARTS>
+    </PARTSPEC>
+    <PARTSPEC>
+        <PATTERN>
+            <MATCH>
+                <VAR n="directory" v="win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel_pdb,rel"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="linux-pentium"/>
+                <VAR n="packager" v="redhat"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="prof_rel"/>
+                <VAR n="c-vers1" v="4.1.1"/>
+                <VAR n="c-toolcol1" v="gcc:4.1.1:1"/>
+                <VAR n="platform" v="linux-pentium"/>
+                <VAR n="kernel_version" v="2.4"/>
+                <VAR n="base_os" v="linux"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="linux-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vv_id1" v="base_os:=:linux|packager:=:redhat|pkg_version:=:10.3|kernel_version:=:2.4|arch_id:=:linux_2.4-redhat_10.3-i686|eda-root:=:/arm/devsys-tools/collections|platform:=:linux-pentium|regime:=:rel|c-tool1:=:gcc|c-vers1:=:4.1.1|c-toolcol1:=:gcc:4.1.1:1|c-toolloc1:=:linux_2.4-redhat_10.3-i686/gcc-3.4.4/bin/gcc|c-compiler:=:gcc-4.1.1"/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="gcc-4.1.1"/>
+                <VAR n="regime" v="rel"/>
+                <VAR n="pkg_version" v="10.3"/>
+                <VAR n="c-toolloc1" v="linux_2.4-redhat_10.3-i686/gcc-4.1.1/bin/gcc"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="linux_2.4-redhat_10.3-i686"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="eval2\win_32-pentium-dbg"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="eval2"/>
+                <VAR n="cap_dir" v="eval2\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="uVision\win_32-pentium-dbg"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="uVision"/>
+                <VAR n="cap_dir" v="uVision\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="uVision\win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="uVision"/>
+                <VAR n="cap_dir" v="uVision\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel_pdb,rel"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="i3d\win_32-pentium-dbg"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="i3d"/>
+                <VAR n="cap_dir" v="i3d\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="eval2\win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="eval2"/>
+                <VAR n="cap_dir" v="eval2\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel_pdb,rel"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="linux-pentium-dbg"/>
+                <VAR n="packager" v="redhat"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="4.1.1"/>
+                <VAR n="c-toolcol1" v="gcc:4.1.1:1"/>
+                <VAR n="platform" v="linux-pentium"/>
+                <VAR n="kernel_version" v="2.4"/>
+                <VAR n="base_os" v="linux"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="linux-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vv_id1" v="base_os:=:linux|packager:=:redhat|pkg_version:=:10.3|kernel_version:=:2.4|arch_id:=:linux_2.4-redhat_10.3-i686|eda-root:=:/arm/devsys-tools/collections|platform:=:linux-pentium|regime:=:rel|c-tool1:=:gcc|c-vers1:=:4.1.1|c-toolcol1:=:gcc:4.1.1:1|c-toolloc1:=:linux_2.4-redhat_10.3-i686/gcc-3.4.4/bin/gcc|c-compiler:=:gcc-4.1.1"/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="gcc-4.1.1"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="10.3"/>
+                <VAR n="c-toolloc1" v="linux_2.4-redhat_10.3-i686/gcc-4.1.1/bin/gcc"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="linux_2.4-redhat_10.3-i686"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="solaris-sparc"/>
+                <VAR n="packager" v="sun"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="3.4.4"/>
+                <VAR n="c-toolcol1" v="VIA-/arm/eda/collect/devsys/3_4_4/setup_paths.sh"/>
+                <VAR n="platform" v="solaris-sparc"/>
+                <VAR n="kernel_version" v="5.9"/>
+                <VAR n="base_os" v="solaris"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="solaris-sparc"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="gcc-3.4.4"/>
+                <VAR n="regime" v="rel"/>
+                <VAR n="pkg_version" v="9"/>
+                <VAR n="c-toolloc1" v="/arm/eda/collect/devsys/3_4_4/solaris_9-sparc/bin/gcc"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="solaris_5.9-sun_9-sparc"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="solaris-sparc-dbg"/>
+                <VAR n="packager" v="sun"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="3.4.4"/>
+                <VAR n="c-toolcol1" v="VIA-/arm/eda/collect/devsys/3_4_4/setup_paths.sh"/>
+                <VAR n="platform" v="solaris-sparc"/>
+                <VAR n="kernel_version" v="5.9"/>
+                <VAR n="base_os" v="solaris"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="solaris-sparc"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="gcc-3.4.4"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="9"/>
+                <VAR n="c-toolloc1" v="/arm/eda/collect/devsys/3_4_4/solaris_9-sparc/bin/gcc"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="solaris_5.9-sun_9-sparc"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="i3d\win_32-pentium"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="i3d"/>
+                <VAR n="cap_dir" v="i3d\win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="rel_pdb,rel"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="win_32-pentium-dbg"/>
+                <VAR n="packager" v="microsoft"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="13.10.3077"/>
+                <VAR n="c-toolcol1" v="VIA-C:/Program Files/Microsoft Visual Studio .NET 2003/Common7/Tools/vsvars32.bat"/>
+                <VAR n="platform" v="win_32-pentium"/>
+                <VAR n="kernel_version" v="2003"/>
+                <VAR n="base_os" v="mswin32"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="win_32-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="cl"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="cl-13.10.3077"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="2003"/>
+                <VAR n="c-toolloc1" v="C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN/cl"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="mswin32_2003-pentium"/>
+            </MATCH>
+        </PATTERN>
+        <PARTS>
+            <FILE md5hash="133c33d2e647d1f5ae735e9876bf47e2" name="rev.xml"/>
+        </PARTS>
+    </PARTSPEC>
+    <PARTSPEC>
+        <PATTERN>
+            <MATCH>
+                <VAR n="directory" v="solaris-sparc"/>
+                <VAR n="packager" v="sun"/>
+                <VAR n="reg_ext" v=""/>
+                <VAR n="armcc_tool_regime" v="rel"/>
+                <VAR n="c-vers1" v="3.4.4"/>
+                <VAR n="c-toolcol1" v="VIA-/arm/eda/collect/devsys/3_4_4/setup_paths.sh"/>
+                <VAR n="platform" v="solaris-sparc"/>
+                <VAR n="kernel_version" v="5.9"/>
+                <VAR n="base_os" v="solaris"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="solaris-sparc"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="rel"/>
+                <VAR n="c-compiler" v="gcc-3.4.4"/>
+                <VAR n="regime" v="rel"/>
+                <VAR n="pkg_version" v="9"/>
+                <VAR n="c-toolloc1" v="/arm/eda/collect/devsys/3_4_4/solaris_9-sparc/bin/gcc"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="solaris_5.9-sun_9-sparc"/>
+            </MATCH>
+        </PATTERN>
+        <PARTS>
+            <FILE executable="true" name="%(platform)\armcc"/>
+            <FILE executable="true" name="%(platform)\armar"/>
+            <FILE executable="true" name="%(platform)\armasm"/>
+            <FILE executable="true" name="%(platform)\fromelf"/>
+            <FILE executable="true" name="%(platform)\armcpp"/>
+            <FILE executable="true" name="%(platform)\armlink"/>
+            <FILE executable="true" name="%(platform)\tcc"/>
+            <FILE executable="true" name="%(platform)\tcpp"/>
+        </PARTS>
+    </PARTSPEC>
+    <PARTSPEC>
+        <PATTERN>
+            <MATCH>
+                <VAR n="directory" v="linux-pentium-dbg"/>
+                <VAR n="packager" v="redhat"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="4.1.1"/>
+                <VAR n="c-toolcol1" v="gcc:4.1.1:1"/>
+                <VAR n="platform" v="linux-pentium"/>
+                <VAR n="kernel_version" v="2.4"/>
+                <VAR n="base_os" v="linux"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="linux-pentium"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vv_id1" v="base_os:=:linux|packager:=:redhat|pkg_version:=:10.3|kernel_version:=:2.4|arch_id:=:linux_2.4-redhat_10.3-i686|eda-root:=:/arm/devsys-tools/collections|platform:=:linux-pentium|regime:=:rel|c-tool1:=:gcc|c-vers1:=:4.1.1|c-toolcol1:=:gcc:4.1.1:1|c-toolloc1:=:linux_2.4-redhat_10.3-i686/gcc-3.4.4/bin/gcc|c-compiler:=:gcc-4.1.1"/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="gcc-4.1.1"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="10.3"/>
+                <VAR n="c-toolloc1" v="linux_2.4-redhat_10.3-i686/gcc-4.1.1/bin/gcc"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="linux_2.4-redhat_10.3-i686"/>
+            </MATCH>
+            <MATCH>
+                <VAR n="directory" v="solaris-sparc-dbg"/>
+                <VAR n="packager" v="sun"/>
+                <VAR n="reg_ext" v="-dbg"/>
+                <VAR n="armcc_tool_regime" v="dbg"/>
+                <VAR n="c-vers1" v="3.4.4"/>
+                <VAR n="c-toolcol1" v="VIA-/arm/eda/collect/devsys/3_4_4/setup_paths.sh"/>
+                <VAR n="platform" v="solaris-sparc"/>
+                <VAR n="kernel_version" v="5.9"/>
+                <VAR n="base_os" v="solaris"/>
+                <VAR n="capability" v="standard"/>
+                <VAR n="cap_dir" v="solaris-sparc"/>
+                <VAR n="encryption" v="none"/>
+                <VAR n="tool_ext" v=""/>
+                <VAR n="c-tool1" v="gcc"/>
+                <VAR n="c-vv_id1" v=""/>
+                <VAR n="tool_regime" v="dbg"/>
+                <VAR n="c-compiler" v="gcc-3.4.4"/>
+                <VAR n="regime" v="dbg"/>
+                <VAR n="pkg_version" v="9"/>
+                <VAR n="c-toolloc1" v="/arm/eda/collect/devsys/3_4_4/solaris_9-sparc/bin/gcc"/>
+                <VAR n="enc_ext" v=""/>
+                <VAR n="arch_id" v="solaris_5.9-sun_9-sparc"/>
+            </MATCH>
+        </PATTERN>
+        <PARTS>
+            <FILE executable="true" name="%(directory)\fromelf"/>
+            <FILE executable="true" name="%(directory)\armlink"/>
+            <FILE executable="true" name="%(directory)\armcc"/>
+            <FILE executable="true" name="%(directory)\tcc"/>
+            <FILE executable="true" name="%(directory)\tcpp"/>
+            <FILE executable="true" name="%(directory)\armcpp"/>
+            <FILE executable="true" name="%(directory)\armar"/>
+            <FILE executable="true" name="%(directory)\armasm"/>
+        </PARTS>
+    </PARTSPEC>
+</PARTLIST>
+
